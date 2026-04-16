@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="creating unit testing for user service.">
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="creating unit testing for KeycloakServiceTest.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/KeycloakServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/KeycloakServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/AuthServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/AuthServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +56,9 @@
     "Application.ReviewserviceApplication.executor": "Run",
     "Application.SalonServiceApplication.executor": "Run",
     "Application.UserServiceApplication.executor": "Run",
+    "JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken.executor": "Run",
+    "JUnit.AuthServiceImplTest.testLogin.executor": "Run",
+    "JUnit.AuthServiceImplTest.testSignUp.executor": "Run",
     "JUnit.CategoryServiceImplTest.deleteCategory_WithSalon_Unauthorized.executor": "Run",
     "JUnit.CategoryServiceImplTest.executor": "Debug",
     "JUnit.CategoryServiceImplTest.getAllCategories.executor": "Run",
@@ -113,7 +116,7 @@
       <recent name="com.salonservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KeycloakServiceTest.testGetRoleNyName">
+  <component name="RunManager" selected="JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -166,7 +169,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KeycloakServiceTest.testGetAdminAccessTokenFailure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthServiceImplTest.testGetAccessTokenFromRefreshToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="userservice" />
       <extension name="coverage">
         <pattern>
@@ -175,14 +178,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.userservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.service.KeycloakServiceTest" />
-      <option name="METHOD_NAME" value="testGetAdminAccessTokenFailure" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.service.AuthServiceImplTest" />
+      <option name="METHOD_NAME" value="testGetAccessTokenFromRefreshToken" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KeycloakServiceTest.testGetAdminAccessTone" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthServiceImplTest.testLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="userservice" />
       <extension name="coverage">
         <pattern>
@@ -191,8 +194,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.userservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.service.KeycloakServiceTest" />
-      <option name="METHOD_NAME" value="testGetAdminAccessTone" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.service.AuthServiceImplTest" />
+      <option name="METHOD_NAME" value="testLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthServiceImplTest.testSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.userservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.userservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.service.AuthServiceImplTest" />
+      <option name="METHOD_NAME" value="testSignUp" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -230,29 +249,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SalonControllerTest.testCreateSalonUserFailed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.salonservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.salonservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.salonservice.controller.SalonControllerTest" />
-      <option name="METHOD_NAME" value="testCreateSalonUserFailed" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken" />
+        <item itemvalue="JUnit.AuthServiceImplTest.testSignUp" />
+        <item itemvalue="JUnit.AuthServiceImplTest.testLogin" />
         <item itemvalue="JUnit.KeycloakServiceTest.testGetRoleNyName" />
         <item itemvalue="JUnit.KeycloakServiceTest.testGetFirstUserByUsername" />
-        <item itemvalue="JUnit.KeycloakServiceTest.testGetAdminAccessTokenFailure" />
-        <item itemvalue="JUnit.KeycloakServiceTest.testGetAdminAccessTone" />
-        <item itemvalue="JUnit.SalonControllerTest.testCreateSalonUserFailed" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776326743641</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="creating unit testing for KeycloakServiceTest.java">
+      <option name="closed" value="true" />
+      <created>1776328314751</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776328314751</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -294,7 +305,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="creating unit testing for user service." />
-    <option name="LAST_COMMIT_MESSAGE" value="creating unit testing for user service." />
+    <MESSAGE value="creating unit testing for KeycloakServiceTest.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating unit testing for KeycloakServiceTest.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -326,7 +338,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/SalonService/src/test/java/com/salonservice/service/SalonServiceImplTest.java</url>
           <line>72</line>
-          <properties class="com.salonservice.service.SalonServiceImplTest" method="testUpdateSalonNotFound">
+          <properties class="com.salonservice.service.SalonServiceImplTest" method="testUpdateSalonUnauthorized">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
