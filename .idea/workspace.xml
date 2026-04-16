@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="creating unit testing for AuthServiceImplTest.java">
-      <change afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/controller/AuthControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/model/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/model/UserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,10 +91,11 @@
     "JUnit.SalonTest.testToString.executor": "Run",
     "JUnit.UserTest.testUserGettersAndSetters.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Spring Boot/micro/salon",
+    "last_opened_file_path": "C:/Users/Ankit Agarwal/IdeaProjects/Ecommerce",
     "settings.editor.selected.configurable": "preferences.editor"
   }
 }]]></component>
@@ -120,7 +119,7 @@
       <recent name="com.salonservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AuthControllerTest.testLogin">
+  <component name="RunManager" selected="Application.SalonServiceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -147,12 +146,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CategoryserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.categoryservice.CategoryserviceApplication" />
+      <module name="categoryservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.categoryservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EurekaserverApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.eurekaserver.EurekaserverApplication" />
       <module name="eurekaserver" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.eurekaserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.notificationservice.NotificationserviceApplication" />
+      <module name="notificationservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.notificationservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OfferingServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.offeringservice.OfferingServiceApplication" />
+      <module name="offeringservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.offeringservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SalonServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.salonservice.SalonServiceApplication" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salonservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -189,77 +240,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthControllerTest.testSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="userservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.userservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.userservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.controller.AuthControllerTest" />
-      <option name="METHOD_NAME" value="testSignUp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthServiceImplTest.testGetAccessTokenFromRefreshToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="userservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.userservice.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.userservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.service.AuthServiceImplTest" />
-      <option name="METHOD_NAME" value="testGetAccessTokenFromRefreshToken" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthServiceImplTest.testSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="userservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.userservice.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.userservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.service.AuthServiceImplTest" />
-      <option name="METHOD_NAME" value="testSignUp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserTest.testUserGettersAndSetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="userservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.userservice.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.userservice.model" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.model.UserTest" />
-      <option name="METHOD_NAME" value="testUserGettersAndSetters" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SalonServiceApplication" />
+        <item itemvalue="Application.CategoryserviceApplication" />
+        <item itemvalue="Application.NotificationserviceApplication" />
+        <item itemvalue="Application.OfferingServiceApplication" />
         <item itemvalue="JUnit.AuthControllerTest.testLogin" />
-        <item itemvalue="JUnit.AuthControllerTest.testSignUp" />
-        <item itemvalue="JUnit.UserTest.testUserGettersAndSetters" />
-        <item itemvalue="JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken" />
-        <item itemvalue="JUnit.AuthServiceImplTest.testSignUp" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776330073646</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="creating unit testing for AuthServiceImplTest.java">
+      <option name="closed" value="true" />
+      <created>1776334824361</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776334824361</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
