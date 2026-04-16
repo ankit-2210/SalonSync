@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/model/UserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/AuthServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/KeycloakServiceTest.java" afterDir="false" />
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="creating unit testing for user service.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/KeycloakServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/KeycloakServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +61,10 @@
     "JUnit.CategoryServiceImplTest.getAllCategories.executor": "Run",
     "JUnit.CategoryServiceImplTest.getCategoryByIdAndSalonId.executor": "Run",
     "JUnit.CategoryServiceImplTest.saveCategory.executor": "Run",
+    "JUnit.KeycloakServiceTest.testGetAdminAccessTokenFailure.executor": "Run",
+    "JUnit.KeycloakServiceTest.testGetAdminAccessTone.executor": "Run",
+    "JUnit.KeycloakServiceTest.testGetFirstUserByUsername.executor": "Run",
+    "JUnit.KeycloakServiceTest.testGetRoleNyName.executor": "Run",
     "JUnit.OfferingServiceTest.executor": "Run",
     "JUnit.OfferingServiceTest.testToString.executor": "Run",
     "JUnit.ReviewTest.executor": "Run",
@@ -111,7 +113,7 @@
       <recent name="com.salonservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SalonControllerTest.testCreateSalonUserFailed">
+  <component name="RunManager" selected="JUnit.KeycloakServiceTest.testGetRoleNyName">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -164,48 +166,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OfferingServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="offeringservice" />
+    <configuration name="KeycloakServiceTest.testGetAdminAccessTokenFailure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.offeringservice.model.*" />
+          <option name="PATTERN" value="com.userservice.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.offeringservice.model" />
-      <option name="MAIN_CLASS_NAME" value="com.offeringservice.model.OfferingServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OfferingServiceTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="offeringservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.offeringservice.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.offeringservice.model" />
-      <option name="MAIN_CLASS_NAME" value="com.offeringservice.model.OfferingServiceTest" />
-      <option name="METHOD_NAME" value="testToString" />
+      <option name="PACKAGE_NAME" value="com.userservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.service.KeycloakServiceTest" />
+      <option name="METHOD_NAME" value="testGetAdminAccessTokenFailure" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SalonControllerTest.testCreateSalon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
+    <configuration name="KeycloakServiceTest.testGetAdminAccessTone" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.salonservice.controller.*" />
+          <option name="PATTERN" value="com.userservice.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.salonservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.salonservice.controller.SalonControllerTest" />
-      <option name="METHOD_NAME" value="testCreateSalon" />
+      <option name="PACKAGE_NAME" value="com.userservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.service.KeycloakServiceTest" />
+      <option name="METHOD_NAME" value="testGetAdminAccessTone" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KeycloakServiceTest.testGetFirstUserByUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.userservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.userservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.service.KeycloakServiceTest" />
+      <option name="METHOD_NAME" value="testGetFirstUserByUsername" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KeycloakServiceTest.testGetRoleNyName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.userservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.userservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.service.KeycloakServiceTest" />
+      <option name="METHOD_NAME" value="testGetRoleNyName" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -227,29 +246,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SalonTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.salonservice.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.salonservice.model" />
-      <option name="MAIN_CLASS_NAME" value="com.salonservice.model.SalonTest" />
-      <option name="METHOD_NAME" value="testToString" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KeycloakServiceTest.testGetRoleNyName" />
+        <item itemvalue="JUnit.KeycloakServiceTest.testGetFirstUserByUsername" />
+        <item itemvalue="JUnit.KeycloakServiceTest.testGetAdminAccessTokenFailure" />
+        <item itemvalue="JUnit.KeycloakServiceTest.testGetAdminAccessTone" />
         <item itemvalue="JUnit.SalonControllerTest.testCreateSalonUserFailed" />
-        <item itemvalue="JUnit.SalonControllerTest.testCreateSalon" />
-        <item itemvalue="JUnit.OfferingServiceTest" />
-        <item itemvalue="JUnit.OfferingServiceTest.testToString" />
-        <item itemvalue="JUnit.SalonTest.testToString" />
       </list>
     </recent_temporary>
   </component>
@@ -262,6 +265,15 @@
       <option name="presentableId" value="Default" />
       <updated>1771044077448</updated>
     </task>
+    <task id="LOCAL-00001" summary="creating unit testing for user service.">
+      <option name="closed" value="true" />
+      <created>1776326743641</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1776326743641</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -279,6 +291,10 @@
     <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
     <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
     <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="creating unit testing for user service." />
+    <option name="LAST_COMMIT_MESSAGE" value="creating unit testing for user service." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
