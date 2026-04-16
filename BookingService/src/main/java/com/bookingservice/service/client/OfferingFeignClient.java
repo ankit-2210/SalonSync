@@ -1,6 +1,7 @@
 package com.bookingservice.service.client;
 
 import com.bookingservice.payload.dto.ServiceDto;
+import com.bookingservice.payload.response.ApiResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ import java.util.Set;
 public interface OfferingFeignClient {
 
     @GetMapping("/api/offeringService/list")
-    ResponseEntity<Set<ServiceDto>> getServicesByIds(@RequestParam Set<Long> ids);
+    ResponseEntity<ApiResponse<Set<ServiceDto>>> getServicesByIds(@RequestParam Set<Long> ids);
 
 
 }

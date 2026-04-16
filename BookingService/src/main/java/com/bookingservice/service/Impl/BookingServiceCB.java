@@ -43,11 +43,11 @@ public class BookingServiceCB {
     @Retry(name = "offeringRetry", fallbackMethod = "offeringFallback")
     @CircuitBreaker(name = "offeringCB", fallbackMethod = "offeringFallback")
     public ApiResponse<Set<ServiceDto>> getServicesByIds(Set<Long> ids) {
-         ResponseEntity<Set<ServiceDto>> response = offeringFeignClient.getServicesByIds(ids);
-        if (response == null || response.getBody() == null || response.getBody().isEmpty()) {
+        ResponseEntity<ApiResponse<Set<ServiceDto>>> response = offeringFeignClient.getServicesByIds(ids);
+        if (response == null || response.getBody() == null || !response.getBody().isSuccess()) {
             return new ApiResponse<>(false, "Services not found", null);
         }
-        return new ApiResponse<>(true, "Services fetched", response.getBody());
+        return response.getBody();
     }
     public ApiResponse<Set<ServiceDto>> offeringFallback(Set<Long> ids, Throwable t) {
         return new ApiResponse<>(false, "Offering Service Down", null);

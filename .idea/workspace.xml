@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="creating unit testing for AuthServiceImplTest.java">
+      <change afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/mapper/ServiceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/payload/response/ApiResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceCB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/client/OfferingFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/client/OfferingFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/controller/OfferingServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/controller/OfferingServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/client/OfferingFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/client/OfferingFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/client/SalonFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/client/SalonFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/client/UserFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/client/UserFeignClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +121,14 @@
       <recent name="com.bookingservice" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.paymentservice.payload.response" />
       <recent name="com.userservice.payload.response" />
       <recent name="com.offeringservice.config" />
       <recent name="com.offeringservice.payload.response" />
       <recent name="com.categoryservice.payload.response" />
-      <recent name="com.salonservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SalonServiceApplication">
+  <component name="RunManager" selected="Application.PaymentserviceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -172,12 +181,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NotificationserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.notificationservice.NotificationserviceApplication" />
-      <module name="notificationservice" />
+    <configuration name="OfferingServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.offeringservice.OfferingServiceApplication" />
+      <module name="offeringservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.notificationservice.*" />
+          <option name="PATTERN" value="com.offeringservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -185,12 +194,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OfferingServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.offeringservice.OfferingServiceApplication" />
-      <module name="offeringservice" />
+    <configuration name="PaymentserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.paymentservice.PaymentserviceApplication" />
+      <module name="paymentservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.offeringservice.*" />
+          <option name="PATTERN" value="com.paymentservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.reviewservice.ReviewserviceApplication" />
+      <module name="reviewservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.reviewservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -224,29 +246,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthControllerTest.testLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="userservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.userservice.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.userservice.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.controller.AuthControllerTest" />
-      <option name="METHOD_NAME" value="testLogin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SalonServiceApplication" />
+        <item itemvalue="Application.PaymentserviceApplication" />
+        <item itemvalue="Application.ReviewserviceApplication" />
         <item itemvalue="Application.CategoryserviceApplication" />
-        <item itemvalue="Application.NotificationserviceApplication" />
         <item itemvalue="Application.OfferingServiceApplication" />
-        <item itemvalue="JUnit.AuthControllerTest.testLogin" />
+        <item itemvalue="Application.SalonServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776334824361</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="creating unit testing for AuthServiceImplTest.java">
+      <option name="closed" value="true" />
+      <created>1776351033470</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1776351033470</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -310,6 +324,17 @@
     <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
     <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="creating unit testing for user service." />
     <MESSAGE value="creating unit testing for KeycloakServiceTest.java" />
@@ -320,11 +345,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceImpl.java</url>
-          <line>149</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/CategoryService/src/test/java/com/categoryservice/service/CategoryServiceImplTest.java</url>
           <line>44</line>
           <option name="timeStamp" value="2" />
@@ -333,6 +353,11 @@
           <url>file://$PROJECT_DIR$/CategoryService/src/test/java/com/categoryservice/controller/SalonCategoryControllerTest.java</url>
           <line>20</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/mapper/ServiceMapper.java</url>
+          <line>2</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/SalonService/src/test/java/com/salonservice/service/SalonServiceImplTest.java</url>

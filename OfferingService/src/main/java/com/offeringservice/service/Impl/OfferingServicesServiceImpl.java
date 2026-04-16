@@ -66,12 +66,8 @@ public class OfferingServicesServiceImpl implements OfferingServicesService {
 
     @Override
     public OfferingService getServiceById(Long id) throws Exception {
-        OfferingService offeringService = offeringRepository.findById(id).orElse(null);
-        if(offeringService == null){
-            throw new Exception("Service not exist with id: " + id);
-        }
-
-        return offeringService;
+        return offeringRepository.findById(id)
+                .orElseThrow(() -> new Exception("Service not exist with id: " + id));
     }
 
 
