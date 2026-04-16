@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="creating unit testing for KeycloakServiceTest.java">
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="creating unit testing for AuthServiceImplTest.java">
+      <change afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/controller/AuthControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/AuthServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/service/AuthServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/model/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/userservice/model/UserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +57,8 @@
     "Application.ReviewserviceApplication.executor": "Run",
     "Application.SalonServiceApplication.executor": "Run",
     "Application.UserServiceApplication.executor": "Run",
+    "JUnit.AuthControllerTest.testLogin.executor": "Run",
+    "JUnit.AuthControllerTest.testSignUp.executor": "Run",
     "JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken.executor": "Run",
     "JUnit.AuthServiceImplTest.testLogin.executor": "Run",
     "JUnit.AuthServiceImplTest.testSignUp.executor": "Run",
@@ -88,6 +91,7 @@
     "JUnit.SalonTest.testImagesList.executor": "Run",
     "JUnit.SalonTest.testSalonModel.executor": "Run",
     "JUnit.SalonTest.testToString.executor": "Run",
+    "JUnit.UserTest.testUserGettersAndSetters.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -116,7 +120,7 @@
       <recent name="com.salonservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken">
+  <component name="RunManager" selected="JUnit.AuthControllerTest.testLogin">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -169,6 +173,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AuthControllerTest.testLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.userservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.userservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.controller.AuthControllerTest" />
+      <option name="METHOD_NAME" value="testLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthControllerTest.testSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="userservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.userservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.userservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.controller.AuthControllerTest" />
+      <option name="METHOD_NAME" value="testSignUp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AuthServiceImplTest.testGetAccessTokenFromRefreshToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="userservice" />
       <extension name="coverage">
@@ -180,22 +216,6 @@
       <option name="PACKAGE_NAME" value="com.userservice.service" />
       <option name="MAIN_CLASS_NAME" value="com.userservice.service.AuthServiceImplTest" />
       <option name="METHOD_NAME" value="testGetAccessTokenFromRefreshToken" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthServiceImplTest.testLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="userservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.userservice.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.userservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.service.AuthServiceImplTest" />
-      <option name="METHOD_NAME" value="testLogin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -217,33 +237,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KeycloakServiceTest.testGetFirstUserByUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserTest.testUserGettersAndSetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="userservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.userservice.service.*" />
+          <option name="PATTERN" value="com.userservice.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.userservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.service.KeycloakServiceTest" />
-      <option name="METHOD_NAME" value="testGetFirstUserByUsername" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KeycloakServiceTest.testGetRoleNyName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="userservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.userservice.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.userservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.userservice.service.KeycloakServiceTest" />
-      <option name="METHOD_NAME" value="testGetRoleNyName" />
+      <option name="PACKAGE_NAME" value="com.userservice.model" />
+      <option name="MAIN_CLASS_NAME" value="com.userservice.model.UserTest" />
+      <option name="METHOD_NAME" value="testUserGettersAndSetters" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -251,11 +255,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AuthControllerTest.testLogin" />
+        <item itemvalue="JUnit.AuthControllerTest.testSignUp" />
+        <item itemvalue="JUnit.UserTest.testUserGettersAndSetters" />
         <item itemvalue="JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken" />
         <item itemvalue="JUnit.AuthServiceImplTest.testSignUp" />
-        <item itemvalue="JUnit.AuthServiceImplTest.testLogin" />
-        <item itemvalue="JUnit.KeycloakServiceTest.testGetRoleNyName" />
-        <item itemvalue="JUnit.KeycloakServiceTest.testGetFirstUserByUsername" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776328314751</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="creating unit testing for AuthServiceImplTest.java">
+      <option name="closed" value="true" />
+      <created>1776330073646</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776330073646</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -306,7 +318,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="creating unit testing for user service." />
     <MESSAGE value="creating unit testing for KeycloakServiceTest.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating unit testing for KeycloakServiceTest.java" />
+    <MESSAGE value="creating unit testing for AuthServiceImplTest.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating unit testing for AuthServiceImplTest.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
