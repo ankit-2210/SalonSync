@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\plugins\maven\lib\maven3" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="39e6ERqZK6zcaEx76bqNhlRNQoL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ApiGatewayApplication.executor": "Run",
+    "Application.BookingserviceApplication.executor": "Run",
+    "Application.CategoryserviceApplication.executor": "Run",
+    "Application.EurekaserverApplication.executor": "Run",
+    "Application.NotificationserviceApplication.executor": "Run",
+    "Application.OfferingServiceApplication.executor": "Run",
+    "Application.PaymentserviceApplication.executor": "Run",
+    "Application.ReviewserviceApplication.executor": "Run",
+    "Application.SalonServiceApplication.executor": "Run",
+    "Application.UserServiceApplication.executor": "Run",
+    "JUnit.CategoryServiceImplTest.deleteCategory_WithSalon_Unauthorized.executor": "Run",
+    "JUnit.CategoryServiceImplTest.executor": "Debug",
+    "JUnit.CategoryServiceImplTest.getAllCategories.executor": "Run",
+    "JUnit.CategoryServiceImplTest.getCategoryByIdAndSalonId.executor": "Run",
+    "JUnit.CategoryServiceImplTest.saveCategory.executor": "Run",
+    "JUnit.OfferingServiceTest.executor": "Run",
+    "JUnit.OfferingServiceTest.testToString.executor": "Run",
+    "JUnit.ReviewTest.executor": "Run",
+    "JUnit.ReviewTest.testReviewModel.executor": "Run",
+    "JUnit.SalonCategoryControllerTest.createCategory.executor": "Run",
+    "JUnit.SalonCategoryControllerTest.deleteCategory.executor": "Run",
+    "JUnit.SalonCategoryControllerTest.executor": "Debug",
+    "JUnit.SalonControllerTest.testCreateSalon.executor": "Run",
+    "JUnit.SalonControllerTest.testCreateSalonUserFailed.executor": "Run",
+    "JUnit.SalonServiceImplTest.testCreateSalon.executor": "Debug",
+    "JUnit.SalonServiceImplTest.testGetAllSalons.executor": "Run",
+    "JUnit.SalonServiceImplTest.testGetSalonById.executor": "Run",
+    "JUnit.SalonServiceImplTest.testGetSalonByIdNotFound.executor": "Run",
+    "JUnit.SalonServiceImplTest.testGetSalonByOwnerId.executor": "Run",
+    "JUnit.SalonServiceImplTest.testSearchSalonByCity.executor": "Run",
+    "JUnit.SalonServiceImplTest.testUpdateSalon.executor": "Run",
+    "JUnit.SalonServiceImplTest.testUpdateSalonNotFound.executor": "Run",
+    "JUnit.SalonTest.testImagesList.executor": "Run",
+    "JUnit.SalonTest.testSalonModel.executor": "Run",
+    "JUnit.SalonTest.testToString.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Spring Boot/micro/salon",
+    "settings.editor.selected.configurable": "preferences.editor"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Spring Boot\micro\salon\UserService\src\main\java\com\userservice" />
+      <recent name="C:\Spring Boot\micro\salon\SalonService\src\main\java\com\salonservice" />
+      <recent name="C:\Spring Boot\micro\salon\ReviewService\src\main\java\com\reviewservice" />
+      <recent name="C:\Spring Boot\micro\salon\OfferingService\src\main\java\com\offeringservice\exception" />
+      <recent name="C:\Spring Boot\salon\ReviewService\src\main\java\com\reviewservice\payload" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.paymentservice" />
+      <recent name="com.bookingservice" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.userservice.payload.response" />
+      <recent name="com.offeringservice.config" />
+      <recent name="com.offeringservice.payload.response" />
+      <recent name="com.categoryservice.payload.response" />
+      <recent name="com.salonservice.payload.response" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SalonControllerTest.testCreateSalonUserFailed">
+    <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
+      <module name="apigateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.apigateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookingserviceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bookingservice.BookingserviceApplication" />
+      <module name="bookingservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bookingservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaserverApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.eurekaserver.EurekaserverApplication" />
+      <module name="eurekaserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.eurekaserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.userservice.UserServiceApplication" />
+      <module name="userservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.userservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OfferingServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="offeringservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.offeringservice.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.offeringservice.model" />
+      <option name="MAIN_CLASS_NAME" value="com.offeringservice.model.OfferingServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OfferingServiceTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="offeringservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.offeringservice.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.offeringservice.model" />
+      <option name="MAIN_CLASS_NAME" value="com.offeringservice.model.OfferingServiceTest" />
+      <option name="METHOD_NAME" value="testToString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SalonControllerTest.testCreateSalon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salonservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.salonservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.salonservice.controller.SalonControllerTest" />
+      <option name="METHOD_NAME" value="testCreateSalon" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SalonControllerTest.testCreateSalonUserFailed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salonservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.salonservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.salonservice.controller.SalonControllerTest" />
+      <option name="METHOD_NAME" value="testCreateSalonUserFailed" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SalonTest.testToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salonservice.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.salonservice.model" />
+      <option name="MAIN_CLASS_NAME" value="com.salonservice.model.SalonTest" />
+      <option name="METHOD_NAME" value="testToString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SalonControllerTest.testCreateSalonUserFailed" />
+        <item itemvalue="JUnit.SalonControllerTest.testCreateSalon" />
+        <item itemvalue="JUnit.OfferingServiceTest" />
+        <item itemvalue="JUnit.OfferingServiceTest.testToString" />
+        <item itemvalue="JUnit.SalonTest.testToString" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="" />
+      <created>1771044077448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1771044077448</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceImpl.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CategoryService/src/test/java/com/categoryservice/service/CategoryServiceImplTest.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CategoryService/src/test/java/com/categoryservice/controller/SalonCategoryControllerTest.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/SalonService/src/test/java/com/salonservice/service/SalonServiceImplTest.java</url>
+          <line>29</line>
+          <properties class="com.salonservice.service.SalonServiceImplTest" method="testCreateSalon">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/SalonService/src/test/java/com/salonservice/service/SalonServiceImplTest.java</url>
+          <line>72</line>
+          <properties class="com.salonservice.service.SalonServiceImplTest" method="testUpdateSalonNotFound">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

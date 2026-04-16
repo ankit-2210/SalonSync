@@ -1,0 +1,302 @@
+services:
+  # ================= MYSQL =================
+  salon-db:
+    image: mysql:8
+    container_name: salon-db
+    ports:
+      - "3301:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: salonbooking
+    networks:
+      - salon-network
+
+  # ================= EUREKA SERVER =================
+  eurekaserver:
+    image: ankitagarwal2210/eurekaserver
+    ports:
+      - "8070:8070"
+    container_name: eurekaserver
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail --silent eurekaserver:8070/actuator/health/readiness | grep UP || exist 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+  # ================= API GATEWAY =================
+  apigateway:
+    image: ankitagarwal2210/apigateway
+    container_name: apigateway
+    ports:
+      - "5000:5000"
+    healthcheck:
+      test: "curl --fail --silent apigateway:5000/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    environment:
+      SPRING_APPLICATION_NAME: "ApiGateway"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+    # ================= KEYCLOAK =================
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.3
+    container_name: keycloak
+    command: start-dev
+    ports:
+      - "8080:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    networks:
+      - salon-network
+
+  # ================= USER SERVICE =================
+  userservice:
+    image: ankitagarwal2210/userservice
+    container_name: userservice
+    ports:
+      - "5001:5001"
+    healthcheck:
+      test: "curl --fail --silent userservice:5001/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      salon-db:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "UserService"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
+      SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+  # ================= SALON SERVICE =================
+  salonservice:
+    image: ankitagarwal2210/salonservice
+    container_name: salonservice
+    ports:
+      - "5002:5002"
+    healthcheck:
+      test: "curl --fail --silent salonservice:5002/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      salon-db:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "SalonService"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
+      SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+  # ================= CATEGORY SERVICE =================
+  categoryservice:
+    image: ankitagarwal2210/categoryservice
+    container_name: categoryservice
+    ports:
+      - "5003:5003"
+    healthcheck:
+      test: "curl --fail --silent categoryservice:5003/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      salon-db:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "CategoryService"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
+      SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+  # ================= OFFERING SERVICE =================
+  offeringservice:
+    image: ankitagarwal2210/offeringservice
+    container_name: offeringservice
+    ports:
+      - "5004:5004"
+    healthcheck:
+      test: "curl --fail --silent offeringservice:5004/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      salon-db:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "OfferingService"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
+      SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+#   ================= BOOKING SERVICE =================
+  bookingservice:
+    image: ankitagarwal2210/bookingservice
+    container_name: bookingservice
+    ports:
+      - "5005:5005"
+    healthcheck:
+      test: "curl --fail --silent bookingservice:5005/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      salon-db:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "BookingService"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
+      SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+  # ================= PAYMENT SERVICE =================
+  paymentservice:
+    image: ankitagarwal2210/paymentservice
+    container_name: paymentservice
+    ports:
+      - "5006:5006"
+    healthcheck:
+      test: "curl --fail --silent paymentservice:5006/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      salon-db:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "PaymentService"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
+      SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+
+  # ================= NOTIFICATION SERVICE =================
+  notificationservice:
+    image: ankitagarwal2210/notificationservice
+    container_name: notificationservice
+    ports:
+      - "5007:5007"
+    healthcheck:
+      test: "curl --fail --silent notificationservice:5007/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      salon-db:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "NotificationService"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
+      SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+  # ================= REVIEW SERVICE =================
+  reviewservice:
+    image: ankitagarwal2210/reviewservice
+    container_name: reviewservice
+    ports:
+      - "5008:5008"
+    healthcheck:
+      test: "curl --fail --silent reviewservice:5008/actuator/health/readiness | grep UP || exist 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    depends_on:
+      salon-db:
+        condition: service_healthy
+    environment:
+      SPRING_APPLICATION_NAME: "ReviewService"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
+      SPRING_DATASOURCE_USERNAME: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - salon-network
+
+
+# ================= NETWORK =================
+networks:
+  salon-network:
+    driver: bridge

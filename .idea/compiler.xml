@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="apigateway" />
+        <module name="eurekaserver" />
+        <module name="bookingservice" />
+        <module name="reviewservice" />
+        <module name="categoryservice" />
+        <module name="userservice" />
+        <module name="offeringservice" />
+        <module name="demo" />
+        <module name="paymentservice" />
+        <module name="notificationservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ApiGateway" target="21" />
+      <module name="BookingService" target="21" />
+      <module name="com.notifications" target="21" />
+      <module name="EurekaServer" target="21" />
+      <module name="OfferingService" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApiGateway" options="-parameters" />
+      <module name="BookingService" options="-parameters" />
+      <module name="EurekaServer" options="-parameters" />
+      <module name="OfferingService" options="-parameters" />
+      <module name="apigateway" options="-parameters" />
+      <module name="bookingservice" options="-parameters" />
+      <module name="categoryservice" options="-parameters" />
+      <module name="com.notifications" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="eurekaserver" options="-parameters" />
+      <module name="notificationservice" options="-parameters" />
+      <module name="offeringservice" options="-parameters" />
+      <module name="paymentservice" options="-parameters" />
+      <module name="reviewservice" options="-parameters" />
+      <module name="userservice" options="-parameters" />
+    </option>
+  </component>
+</project>
