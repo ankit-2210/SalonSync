@@ -9,6 +9,4 @@ public class KeycloakUserDTO {
     private String lastName;
     private String email;
     private String username;
-
-
 }
