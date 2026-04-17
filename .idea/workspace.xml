@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="so many changes happens">
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/payload/response/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceCB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/Impl/NotificationServiceCB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/client/UserFeignClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/mapper/BookingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/mapper/BookingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/payload/dto/BookingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/payload/dto/BookingDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceCB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/SalonNotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/SalonNotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/client/BookingFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/client/BookingFeignClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,11 +117,11 @@
       <recent name="com.bookingservice" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.notificationservice.service.client" />
       <recent name="com.notificationservice.payload.response" />
       <recent name="com.paymentservice.payload.response" />
       <recent name="com.userservice.payload.response" />
       <recent name="com.offeringservice.config" />
-      <recent name="com.offeringservice.payload.response" />
     </key>
   </component>
   <component name="RunManager" selected="Application.BookingserviceApplication">
@@ -313,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776362705051</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="so many changes happens">
+      <option name="closed" value="true" />
+      <created>1776419713578</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1776419713578</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">

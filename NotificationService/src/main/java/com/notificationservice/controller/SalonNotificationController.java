@@ -4,6 +4,7 @@ import com.notificationservice.mapper.NotificationMapper;
 import com.notificationservice.modal.Notification;
 import com.notificationservice.payload.dto.BookingDto;
 import com.notificationservice.payload.dto.NotificationDto;
+import com.notificationservice.service.Impl.NotificationServiceCB;
 import com.notificationservice.service.NotificationService;
 import com.notificationservice.service.client.BookingFeignClient;
 import lombok.RequiredArgsConstructor;
@@ -21,17 +22,17 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/notifications/salon-owner")
 public class SalonNotificationController {
     private final NotificationService notificationService;
-    private final BookingFeignClient bookingFeignClient;
+    private final NotificationServiceCB notificationServiceCB;
 
     @GetMapping("/salon/{salonId}")
     public ResponseEntity<List<NotificationDto>> getNotificationBySalonId(@PathVariable Long salonId){
         List<Notification> notifications = notificationService.getAllNotificationBySalonId(salonId);
-
         List<NotificationDto> notificationDtos = notifications.stream().map(notification -> {
             try {
-                BookingDto bookingDto = bookingFeignClient.getBookingById(notification.getBookingId()).getBody();
+                BookingDto bookingDto = notificationServiceCB.getBookingById(notification.getBookingId()).getData();
                 return NotificationMapper.mapToDto(notification, bookingDto);
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }).collect(Collectors.toList());
