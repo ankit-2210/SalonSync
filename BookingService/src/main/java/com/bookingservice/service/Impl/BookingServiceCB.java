@@ -72,11 +72,11 @@ public class BookingServiceCB {
     // create payment link
     @CircuitBreaker(name = "paymentCB", fallbackMethod = "paymentFallback")
     public ApiResponse<PaymentLinkResponse> createPaymentLink(BookingDto bookingDto, PaymentMethod method, String jwt) throws Exception {
-        ResponseEntity<PaymentLinkResponse> response = paymentFeignClient.createPaymentLink(bookingDto, method, jwt);
+        ResponseEntity<ApiResponse<PaymentLinkResponse>> response = paymentFeignClient.createPaymentLink(bookingDto, method, jwt);
         if(response == null || response.getBody() == null){
             return new ApiResponse<>(false, "Payment failed", null);
         }
-        return new ApiResponse<>(true, "Payment Created", response.getBody());
+        return response.getBody();
     }
     public ApiResponse<PaymentLinkResponse> paymentFallback(BookingDto bookingDto, PaymentMethod method, String jwt, Throwable t) {
         return new ApiResponse<>(false, "Payment Service Down", null);

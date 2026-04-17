@@ -3,6 +3,7 @@ package com.paymentservice.controller;
 import com.paymentservice.model.PaymentOrder;
 import com.paymentservice.payload.dto.BookingDto;
 import com.paymentservice.payload.dto.UserDto;
+import com.paymentservice.payload.response.ApiResponse;
 import com.paymentservice.payload.response.PaymentLinkResponse;
 import com.paymentservice.service.Impl.PaymentServiceCB;
 import com.paymentservice.service.PaymentService;
@@ -22,23 +23,23 @@ public class PaymentController {
     private final PaymentServiceCB paymentServiceCB;
 
     @PostMapping("/create")
-    public ResponseEntity<PaymentLinkResponse> createPaymentLink(@RequestBody BookingDto bookingDto, @RequestParam("paymentMethod") PaymentMethod paymentMethod, @RequestHeader("Authorization") String jwt) throws Exception {
+    public ResponseEntity<ApiResponse<PaymentLinkResponse>> createPaymentLink(@RequestBody BookingDto bookingDto, @RequestParam("paymentMethod") PaymentMethod paymentMethod, @RequestHeader("Authorization") String jwt) throws Exception {
         UserDto userDto = paymentServiceCB.getUserProfile(jwt).getData();
         PaymentLinkResponse paymentLinkResponse = paymentService.createOrder(userDto, bookingDto, paymentMethod);
-        return ResponseEntity.ok(paymentLinkResponse);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Payment Created", paymentLinkResponse));
     }
 
     @GetMapping("/{paymentOrderId}")
-    public ResponseEntity<PaymentOrder> getPaymentOrderById(@PathVariable Long paymentOrderId) throws Exception {
+    public ResponseEntity<ApiResponse<PaymentOrder>> getPaymentOrderById(@PathVariable Long paymentOrderId) throws Exception {
         PaymentOrder paymentOrder = paymentService.getPaymentOrderById(paymentOrderId);
-        return ResponseEntity.ok(paymentOrder);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Payment fetch by id", paymentOrder));
     }
 
     @PatchMapping("/proceed")
-    public ResponseEntity<Boolean> proceedPayment(@RequestParam String paymentId, @RequestParam String paymentLinkId) throws RazorpayException {
+    public ResponseEntity<ApiResponse<Boolean>> proceedPayment(@RequestParam String paymentId, @RequestParam String paymentLinkId) throws RazorpayException {
         PaymentOrder paymentOrder = paymentService.getPaymentOrderByPaymentId(paymentLinkId);
         Boolean res = paymentService.proceedPayment(paymentOrder, paymentId, paymentLinkId);
-        return ResponseEntity.ok(res);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Payment Proceed", res));
     }
 
 
