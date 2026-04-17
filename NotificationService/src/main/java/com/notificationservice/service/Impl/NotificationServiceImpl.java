@@ -4,6 +4,7 @@ import com.notificationservice.mapper.NotificationMapper;
 import com.notificationservice.modal.Notification;
 import com.notificationservice.payload.dto.BookingDto;
 import com.notificationservice.payload.dto.NotificationDto;
+import com.notificationservice.payload.response.ApiResponse;
 import com.notificationservice.repository.NotificationRepository;
 import com.notificationservice.service.NotificationService;
 import com.notificationservice.service.client.BookingFeignClient;
@@ -16,12 +17,16 @@ import java.util.*;
 @RequiredArgsConstructor
 public class NotificationServiceImpl implements NotificationService {
     private final NotificationRepository notificationRepository;
-    private final BookingFeignClient bookingFeignClient;
+    private final NotificationServiceCB notificationServiceCB;
 
     @Override
     public NotificationDto createNotification(Notification notification) throws Exception{
         Notification savedNotification = notificationRepository.save(notification);
-        BookingDto bookingDto = bookingFeignClient.getBookingById(savedNotification.getBookingId()).getBody();
+        ApiResponse<BookingDto> response = notificationServiceCB.getBookingById(notification.getBookingId());
+        if (!response.isSuccess() || response.getData() == null) {
+            throw new RuntimeException("Booking fetch failed");
+        }
+        BookingDto bookingDto = response.getData();
         return NotificationMapper.mapToDto(savedNotification, bookingDto);
     }
 

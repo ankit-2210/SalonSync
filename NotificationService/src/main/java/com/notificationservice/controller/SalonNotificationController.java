@@ -40,6 +40,4 @@ public class SalonNotificationController {
         return ResponseEntity.ok(notificationDtos);
     }
 
-
-
 }
