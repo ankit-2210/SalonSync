@@ -4,6 +4,7 @@ import com.paymentservice.model.PaymentOrder;
 import com.paymentservice.payload.dto.BookingDto;
 import com.paymentservice.payload.dto.UserDto;
 import com.paymentservice.payload.response.PaymentLinkResponse;
+import com.paymentservice.service.Impl.PaymentServiceCB;
 import com.paymentservice.service.PaymentService;
 import com.paymentservice.service.client.UserFeignClient;
 import com.paymentservice.utils.PaymentMethod;
@@ -18,11 +19,11 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class PaymentController {
     private final PaymentService paymentService;
-    private final UserFeignClient userFeignClient;
+    private final PaymentServiceCB paymentServiceCB;
 
     @PostMapping("/create")
     public ResponseEntity<PaymentLinkResponse> createPaymentLink(@RequestBody BookingDto bookingDto, @RequestParam PaymentMethod paymentMethod, @RequestHeader("Authorization") String jwt) throws Exception {
-        UserDto userDto = userFeignClient.getUserProfile(jwt).getBody();
+        UserDto userDto = paymentServiceCB.getUserProfile(jwt).getData();
 
         PaymentLinkResponse paymentLinkResponse = paymentService.createOrder(userDto, bookingDto, paymentMethod);
         return ResponseEntity.ok(paymentLinkResponse);

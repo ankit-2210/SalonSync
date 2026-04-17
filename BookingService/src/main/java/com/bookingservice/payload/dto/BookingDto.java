@@ -4,7 +4,7 @@ import com.bookingservice.utils.BookingStatus;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.*;
 
 @Data
 public class BookingDto {
@@ -16,4 +16,7 @@ public class BookingDto {
     private Set<Long> serviceIds;
     private BookingStatus bookingStatus;
     private int totalPrice;
+    private Set<ServiceDto> serviceDtoList;
+    private UserDto userDto;
+    private SalonDto salonDto;
 }

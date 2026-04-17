@@ -40,6 +40,19 @@ public class BookingServiceCB {
         return new ApiResponse<>(false, "User Service Down", null);
     }
 
+    @CircuitBreaker(name="userCB", fallbackMethod = "userByIdFallback")
+    public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
+        ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);
+        if(response == null || response.getBody() == null){
+            return new ApiResponse<>(false, "User not found", null);
+        }
+        return response.getBody();
+    }
+
+    public ApiResponse<UserDto> userByIdFallback(Long userId, Throwable t){
+        return new ApiResponse<>(false, "User Service is down. Please try later.", null);
+    }
+
     @Retry(name = "offeringRetry", fallbackMethod = "offeringFallback")
     @CircuitBreaker(name = "offeringCB", fallbackMethod = "offeringFallback")
     public ApiResponse<Set<ServiceDto>> getServicesByIds(Set<Long> ids) {

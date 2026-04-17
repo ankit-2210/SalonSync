@@ -46,7 +46,11 @@ public class BookingController {
         }
 
         Booking booking = bookingService.createBooking(bookingRequest, userDto.getData(), salonDto.getData(), serviceDtoSet.getData());
-        BookingDto bookingDto = BookingMapper.bookingDto(booking);
+        Set<ServiceDto> serviceDto = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
+        SalonDto salonDto1 = bookingServiceCB.getSalonById(booking.getSalonId()).getData();
+        UserDto userDto1 = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+
+        BookingDto bookingDto = BookingMapper.bookingDto(booking, serviceDto, salonDto1, userDto1);
 
         ApiResponse<PaymentLinkResponse> paymentLinkResponse = bookingServiceCB.createPaymentLink(bookingDto, paymentMethod, jwt);
         if(!paymentLinkResponse.isSuccess()){
@@ -100,19 +104,41 @@ public class BookingController {
     }
 
     private Set<BookingDto> getBookingDto(List<Booking> bookings){
-        return bookings.stream().map(BookingMapper::bookingDto).collect(Collectors.toSet());
+        return bookings.stream().map(booking->{
+            Set<ServiceDto> serviceDtos = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
+            SalonDto salonDto;
+            UserDto userDto;
+            try{
+                salonDto = bookingServiceCB.getSalonById(booking.getSalonId()).getData();
+                userDto = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+            }
+            catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            return BookingMapper.bookingDto(booking, serviceDtos, salonDto, userDto);
+        }).collect(Collectors.toSet());
     }
 
     @GetMapping("/{bookingId}")
-    public ResponseEntity<BookingDto> getBookingById(@PathVariable Long bookingId) throws Exception {
+    public ResponseEntity<ApiResponse<BookingDto>> getBookingById(@PathVariable Long bookingId) throws Exception {
         Booking booking = bookingService.getBookingById(bookingId);
-        return ResponseEntity.ok(BookingMapper.bookingDto(booking));
+        Set<ServiceDto> serviceDtos = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
+        SalonDto salonDto = bookingServiceCB.getSalonById(booking.getSalonId()).getData();
+        UserDto userDto = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+
+        BookingDto bookingDto = BookingMapper.bookingDto(booking, serviceDtos, salonDto, userDto);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Booking fetched", bookingDto));
     }
 
     @PostMapping("/{bookingId}/status")
-    public ResponseEntity<BookingDto> updateBookingStatus(@PathVariable Long bookingId, @RequestParam BookingStatus bookingStatus) throws Exception {
+    public ResponseEntity<ApiResponse<BookingDto>> updateBookingStatus(@PathVariable Long bookingId, @RequestParam BookingStatus bookingStatus) throws Exception {
         Booking booking = bookingService.updateBooking(bookingId, bookingStatus);
-        return ResponseEntity.ok(BookingMapper.bookingDto(booking));
+        Set<ServiceDto> serviceDtos = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
+        SalonDto salonDto = bookingServiceCB.getSalonById(booking.getSalonId()).getData();
+        UserDto userDto = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+        BookingDto bookingDto = BookingMapper.bookingDto(booking, serviceDtos, salonDto, userDto);
+
+        return ResponseEntity.ok(new ApiResponse<>(true, "Status updated", bookingDto));
     }
 
     @GetMapping("/slots/salon/{salonId}/date/{date}")
@@ -133,11 +159,9 @@ public class BookingController {
         if(!salonDtos.isSuccess()){
             return ResponseEntity.ok(salonDtos);
         }
-
         if(salonDtos.getData().isEmpty()){
             return ResponseEntity.ok(new ApiResponse<>(false, "No salons found for owner", null));
         }
-
         List<SalonReport> salonReports = new ArrayList<>();
         for(SalonDto salonDto: salonDtos.getData()){
             SalonReport salonReport = bookingService.getSalonReport(salonDto.getId());
