@@ -56,13 +56,12 @@ public class PaymentServiceImpl implements PaymentService {
         PaymentLinkResponse paymentLinkResponse = new PaymentLinkResponse();
         if(paymentMethod.equals(PaymentMethod.RAZORPAY)){
             PaymentLink paymentLink=createRazorpayPaymentLink(userDto, order.getAmount(), order.getId());
-            String paymentUrl = paymentLink.get("short_url");
-            String paymentUrlId = paymentLink.get("id");
+            String url = paymentLink.get("short_url");
+            String id = paymentLink.get("id");
 
-//            System.out.println(paymentUrlId + " " + paymentUrlId);
-            paymentLinkResponse.setPaymentLinkUrl(paymentUrl);
-            paymentLinkResponse.setGetPaymentLinkId(paymentUrlId);
-            order.setPaymentLinkId(paymentUrlId);
+            paymentLinkResponse.setPaymentLinkUrl(url);
+            paymentLinkResponse.setPaymentLinkId(id);
+            order.setPaymentLinkId(id);
             paymentOrderRepository.save(order);
         }
         else{

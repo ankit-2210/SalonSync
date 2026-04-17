@@ -52,11 +52,12 @@ public class BookingController {
         UserDto userDto1 = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
 
         BookingDto bookingDto = BookingMapper.bookingDto(booking, serviceDto, salonDto1, userDto1);
+        System.out.println("Calling Payment Service...");
         ApiResponse<PaymentLinkResponse> paymentLinkResponse = bookingServiceCB.createPaymentLink(bookingDto, paymentMethod, jwt);
-        if(!paymentLinkResponse.isSuccess()){
+        System.out.println("Response received: " + paymentLinkResponse);
+        if (!paymentLinkResponse.isSuccess()) {
             return ResponseEntity.ok(paymentLinkResponse);
         }
-
         return ResponseEntity.ok(new ApiResponse<>(true, "Booking Created", paymentLinkResponse.getData()));
     }
 
