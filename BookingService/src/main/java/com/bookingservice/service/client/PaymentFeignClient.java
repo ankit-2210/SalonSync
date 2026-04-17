@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient("PaymentService")
 public interface PaymentFeignClient {
     @PostMapping("/api/payments/create")
-    ResponseEntity<PaymentLinkResponse> createPaymentLink(@RequestBody BookingDto bookingDto, @RequestParam PaymentMethod paymentMethod, @RequestHeader("Authorization") String jwt) throws Exception;
+    ResponseEntity<PaymentLinkResponse> createPaymentLink(@RequestBody BookingDto bookingDto, @RequestParam("paymentMethod") PaymentMethod paymentMethod, @RequestHeader("Authorization") String jwt) throws Exception;
 
 }

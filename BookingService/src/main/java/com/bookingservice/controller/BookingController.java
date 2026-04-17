@@ -30,6 +30,7 @@ public class BookingController {
     private final BookingService bookingService;
     private final BookingServiceCB bookingServiceCB;
 
+    // create booking
     @PostMapping
     public ResponseEntity<ApiResponse<?>> createBooking(@RequestParam Long salonId, @RequestParam PaymentMethod paymentMethod, @RequestBody BookingRequest bookingRequest, @RequestHeader("Authorization") String jwt) throws Exception {
         ApiResponse<UserDto> userDto = bookingServiceCB.getUserProfile(jwt);
@@ -51,14 +52,15 @@ public class BookingController {
         UserDto userDto1 = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
 
         BookingDto bookingDto = BookingMapper.bookingDto(booking, serviceDto, salonDto1, userDto1);
-
         ApiResponse<PaymentLinkResponse> paymentLinkResponse = bookingServiceCB.createPaymentLink(bookingDto, paymentMethod, jwt);
         if(!paymentLinkResponse.isSuccess()){
             return ResponseEntity.ok(paymentLinkResponse);
         }
+
         return ResponseEntity.ok(new ApiResponse<>(true, "Booking Created", paymentLinkResponse.getData()));
     }
 
+    // get bookings by customer
     @GetMapping("/customer")
     public ResponseEntity<ApiResponse<?>> getBookingsByCustomer(@RequestHeader("Authorization") String jwt) throws Exception{
         ApiResponse<UserDto> userDto = bookingServiceCB.getUserProfile(jwt);
@@ -119,8 +121,9 @@ public class BookingController {
         }).collect(Collectors.toSet());
     }
 
+    // get booking by id
     @GetMapping("/{bookingId}")
-    public ResponseEntity<ApiResponse<BookingDto>> getBookingById(@PathVariable Long bookingId) throws Exception {
+    public ResponseEntity<ApiResponse<BookingDto>> getBookingById(@PathVariable("bookingId") Long bookingId) throws Exception {
         Booking booking = bookingService.getBookingById(bookingId);
         Set<ServiceDto> serviceDtos = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
         SalonDto salonDto = bookingServiceCB.getSalonById(booking.getSalonId()).getData();

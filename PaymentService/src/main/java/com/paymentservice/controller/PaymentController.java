@@ -22,9 +22,8 @@ public class PaymentController {
     private final PaymentServiceCB paymentServiceCB;
 
     @PostMapping("/create")
-    public ResponseEntity<PaymentLinkResponse> createPaymentLink(@RequestBody BookingDto bookingDto, @RequestParam PaymentMethod paymentMethod, @RequestHeader("Authorization") String jwt) throws Exception {
+    public ResponseEntity<PaymentLinkResponse> createPaymentLink(@RequestBody BookingDto bookingDto, @RequestParam("paymentMethod") PaymentMethod paymentMethod, @RequestHeader("Authorization") String jwt) throws Exception {
         UserDto userDto = paymentServiceCB.getUserProfile(jwt).getData();
-
         PaymentLinkResponse paymentLinkResponse = paymentService.createOrder(userDto, bookingDto, paymentMethod);
         return ResponseEntity.ok(paymentLinkResponse);
     }

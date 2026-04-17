@@ -59,16 +59,16 @@ public class PaymentServiceImpl implements PaymentService {
             String paymentUrl = paymentLink.get("short_url");
             String paymentUrlId = paymentLink.get("id");
 
-            paymentLinkResponse.setPayment_link_url(paymentUrl);
-            paymentLinkResponse.setGetPayment_link_id(paymentUrlId);
+//            System.out.println(paymentUrlId + " " + paymentUrlId);
+            paymentLinkResponse.setPaymentLinkUrl(paymentUrl);
+            paymentLinkResponse.setGetPaymentLinkId(paymentUrlId);
             order.setPaymentLinkId(paymentUrlId);
             paymentOrderRepository.save(order);
         }
         else{
             String paymentUrl = createStripePaymentLink(userDto, order.getAmount(), order.getId());
-            paymentLinkResponse.setPayment_link_url(paymentUrl);
+            paymentLinkResponse.setPaymentLinkUrl(paymentUrl);
         }
-
         return paymentLinkResponse;
     }
 

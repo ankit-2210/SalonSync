@@ -27,6 +27,7 @@ public class BookingServiceCB {
     private final OfferingFeignClient offeringFeignClient;
     private final PaymentFeignClient paymentFeignClient;
 
+    // get User Profile
     @Retry(name = "userRetry", fallbackMethod = "userFallback")
     @CircuitBreaker(name = "userCB", fallbackMethod = "userFallback")
     public ApiResponse<UserDto> getUserProfile(String jwt) throws Exception {
@@ -40,6 +41,7 @@ public class BookingServiceCB {
         return new ApiResponse<>(false, "User Service Down", null);
     }
 
+    // get user by id
     @CircuitBreaker(name="userCB", fallbackMethod = "userByIdFallback")
     public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);
@@ -53,6 +55,7 @@ public class BookingServiceCB {
         return new ApiResponse<>(false, "User Service is down. Please try later.", null);
     }
 
+    // get services by ids
     @Retry(name = "offeringRetry", fallbackMethod = "offeringFallback")
     @CircuitBreaker(name = "offeringCB", fallbackMethod = "offeringFallback")
     public ApiResponse<Set<ServiceDto>> getServicesByIds(Set<Long> ids) {
@@ -66,6 +69,7 @@ public class BookingServiceCB {
         return new ApiResponse<>(false, "Offering Service Down", null);
     }
 
+    // create payment link
     @CircuitBreaker(name = "paymentCB", fallbackMethod = "paymentFallback")
     public ApiResponse<PaymentLinkResponse> createPaymentLink(BookingDto bookingDto, PaymentMethod method, String jwt) throws Exception {
         ResponseEntity<PaymentLinkResponse> response = paymentFeignClient.createPaymentLink(bookingDto, method, jwt);
@@ -78,6 +82,7 @@ public class BookingServiceCB {
         return new ApiResponse<>(false, "Payment Service Down", null);
     }
 
+    // ger salon by id
     @Retry(name = "salonRetry", fallbackMethod = "salonFallback")
     @CircuitBreaker(name = "salonCB", fallbackMethod = "salonFallback")
     public ApiResponse<SalonDto> getSalonById(Long salonId) throws Exception {
@@ -91,6 +96,7 @@ public class BookingServiceCB {
         return new ApiResponse<>(false, "Salon Service Down", null);
     }
 
+    // get salon by owner id
     @Retry(name = "salonRetry", fallbackMethod = "salonOwnerFallback")
     @CircuitBreaker(name = "salonCB", fallbackMethod = "salonOwnerFallback")
     public ApiResponse<List<SalonDto>> getSalonByOwnerId(String jwt) throws Exception {
