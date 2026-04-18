@@ -15,6 +15,8 @@ import java.util.*;
 public interface BookingService {
     Booking createBooking(BookingRequest bookingRequest, UserDto userDto, SalonDto salonDto, Set<ServiceDto> serviceDtoSet) throws Exception;
 
+    Booking saveBooking(Booking booking);
+
     List<Booking> getBookingsByCustomer(Long customerId);
 
     List<Booking> getBookingsBySalon(Long salonId);

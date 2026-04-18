@@ -32,6 +32,10 @@ public class BookingServiceImpl implements BookingService {
         LocalDateTime bookingEndTime = bookingStartTime.plusMinutes(totalDuration);
 
         Boolean isSlotAvailable = isTimeSlotAvailable(salonDto, bookingStartTime, bookingEndTime);
+        if (!isSlotAvailable) {
+            throw new Exception("Slot not available");
+        }
+
         int totalPrice = serviceDtoSet.stream().mapToInt(ServiceDto::getPrice).sum();
         Set<Long> Ids = serviceDtoSet.stream().map(ServiceDto::getId).collect(Collectors.toSet());
 
@@ -43,7 +47,7 @@ public class BookingServiceImpl implements BookingService {
         booking.setStartTime(bookingStartTime);
         booking.setEndTime(bookingEndTime);
         booking.setTotalPrice(totalPrice);
-        return bookingRepository.save(booking);
+        return booking;
     }
 
     private Boolean isTimeSlotAvailable(SalonDto salonDto, LocalDateTime bookingStartTime, LocalDateTime bookingEndTime) throws Exception {
@@ -70,6 +74,11 @@ public class BookingServiceImpl implements BookingService {
         }
 
         return true;
+    }
+
+    @Override
+    public Booking saveBooking(Booking booking) {
+        return bookingRepository.save(booking);
     }
 
     @Override

@@ -47,9 +47,9 @@ public class BookingController {
         }
 
         Booking booking = bookingService.createBooking(bookingRequest, userDto.getData(), salonDto.getData(), serviceDtoSet.getData());
-        Set<ServiceDto> serviceDto = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
-        SalonDto salonDto1 = bookingServiceCB.getSalonById(booking.getSalonId()).getData();
-        UserDto userDto1 = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+        Set<ServiceDto> serviceDto = serviceDtoSet.getData();
+        SalonDto salonDto1 = salonDto.getData();
+        UserDto userDto1 = userDto.getData();
 
         BookingDto bookingDto = BookingMapper.bookingDto(booking, serviceDto, salonDto1, userDto1);
         System.out.println("Calling Payment Service...");
@@ -58,6 +58,9 @@ public class BookingController {
         if (!paymentLinkResponse.isSuccess()) {
             return ResponseEntity.ok(paymentLinkResponse);
         }
+
+        // save booking after payment link success
+        bookingService.saveBooking(booking);
         return ResponseEntity.ok(new ApiResponse<>(true, "Booking Created", paymentLinkResponse.getData()));
     }
 
