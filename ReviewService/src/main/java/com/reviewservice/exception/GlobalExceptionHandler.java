@@ -1,6 +1,6 @@
 package com.reviewservice.exception;
 
-import com.salonservice.exception.response.ApiErrorResponse;
+import com.reviewservice.exception.response.ApiErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

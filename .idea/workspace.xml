@@ -4,17 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="notification code change">
-      <change afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/exception/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/exception/ConflictException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/exception/response/ApiErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/SalonNotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/SalonNotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/modal/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/modal/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/model/PaymentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/model/PaymentOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="global exception handler code">
+      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/exception/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/exception/ConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/exception/UnauthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/exception/response/ApiErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/ConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/response/ApiErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/exception/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/exception/ConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/exception/UnauthorizedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/exception/response/ApiErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/exception/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/exception/ConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/exception/response/ApiErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/UnauthorizedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/exception/UnauthorizedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/exception/UnauthorizedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/exception/UnauthorizedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/com/reviewservice/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ReviewService/src/main/java/com/reviewservice/exception/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,17 +118,17 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Spring Boot/micro/salon/SalonService/src/main/java/com/salonservice/exception",
+    "last_opened_file_path": "C:/Spring Boot/micro/salon/BookingService/src/main/java/com/bookingservice",
     "settings.editor.selected.configurable": "preferences.editor"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Spring Boot\micro\salon\SalonService\src\main\java\com\salonservice\exception" />
-      <recent name="C:\Spring Boot\micro\salon\UserService\src\main\java\com\userservice" />
-      <recent name="C:\Spring Boot\micro\salon\SalonService\src\main\java\com\salonservice" />
-      <recent name="C:\Spring Boot\micro\salon\ReviewService\src\main\java\com\reviewservice" />
-      <recent name="C:\Spring Boot\micro\salon\OfferingService\src\main\java\com\offeringservice\exception" />
+      <recent name="C:\Spring Boot\micro\salon\BookingService\src\main\java\com\bookingservice" />
+      <recent name="C:\Spring Boot\micro\salon\CategoryService\src\main\java\com\categoryservice" />
+      <recent name="C:\Spring Boot\micro\salon\NotificationService\src\main\java\com\notificationservice" />
+      <recent name="C:\Spring Boot\micro\salon\OfferingService\src\main\java\com\offeringservice" />
+      <recent name="C:\Spring Boot\micro\salon\ReviewService\src\main\java\com\reviewservice\exception\response" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.paymentservice" />
@@ -361,7 +375,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776449975248</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="global exception handler code">
+      <option name="closed" value="true" />
+      <created>1776487921083</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1776487921083</updated>
+    </task>
+    <task id="LOCAL-00014" summary="global exception handler code">
+      <option name="closed" value="true" />
+      <created>1776488002724</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1776488002725</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -397,7 +427,8 @@
     <MESSAGE value="creating unit testing for AuthServiceImplTest.java" />
     <MESSAGE value="so many changes happens" />
     <MESSAGE value="notification code change" />
-    <option name="LAST_COMMIT_MESSAGE" value="notification code change" />
+    <MESSAGE value="global exception handler code" />
+    <option name="LAST_COMMIT_MESSAGE" value="global exception handler code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

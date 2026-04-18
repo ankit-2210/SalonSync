@@ -1,6 +1,6 @@
-package com.userservice.exception;
+package com.bookingservice.exception;
 
-import com.userservice.exception.response.ApiErrorResponse;
+import com.bookingservice.exception.response.ApiErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

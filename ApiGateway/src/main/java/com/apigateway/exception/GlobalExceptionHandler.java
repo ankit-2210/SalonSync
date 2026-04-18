@@ -1,6 +1,6 @@
-package com.userservice.exception;
+package com.apigateway.exception;
 
-import com.userservice.exception.response.ApiErrorResponse;
+import com.apigateway.exception.response.ApiErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
