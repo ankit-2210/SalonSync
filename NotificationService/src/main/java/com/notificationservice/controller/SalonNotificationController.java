@@ -4,6 +4,7 @@ import com.notificationservice.mapper.NotificationMapper;
 import com.notificationservice.modal.Notification;
 import com.notificationservice.payload.dto.BookingDto;
 import com.notificationservice.payload.dto.NotificationDto;
+import com.notificationservice.payload.response.ApiResponse;
 import com.notificationservice.service.Impl.NotificationServiceCB;
 import com.notificationservice.service.NotificationService;
 import com.notificationservice.service.client.BookingFeignClient;
@@ -25,7 +26,7 @@ public class SalonNotificationController {
     private final NotificationServiceCB notificationServiceCB;
 
     @GetMapping("/salon/{salonId}")
-    public ResponseEntity<List<NotificationDto>> getNotificationBySalonId(@PathVariable Long salonId){
+    public ResponseEntity<ApiResponse<List<NotificationDto>>> getNotificationBySalonId(@PathVariable Long salonId){
         List<Notification> notifications = notificationService.getAllNotificationBySalonId(salonId);
         List<NotificationDto> notificationDtos = notifications.stream().map(notification -> {
             try {
@@ -37,7 +38,7 @@ public class SalonNotificationController {
             }
         }).collect(Collectors.toList());
 
-        return ResponseEntity.ok(notificationDtos);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Notification fetch be salonId", notificationDtos));
     }
 
 }

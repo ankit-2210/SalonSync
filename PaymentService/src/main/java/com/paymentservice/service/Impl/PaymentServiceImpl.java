@@ -144,6 +144,7 @@ public class PaymentServiceImpl implements PaymentService {
                 Payment payment = razorpayClient.payments.fetch(paymentId);
                 Integer amount = payment.get("amount");
                 String status = payment.get("status");
+                System.out.println(amount + " " + status);
                 if (status.equals("captured")) {
                     // product rabbitMQ event
                     bookingEventProducer.sentBookingUpdateEvent(paymentOrder);

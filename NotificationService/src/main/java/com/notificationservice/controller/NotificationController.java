@@ -27,7 +27,7 @@ public class NotificationController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<NotificationDto>> getNotificationByUserId(@PathVariable Long userId){
+    public ResponseEntity<ApiResponse<List<NotificationDto>>> getNotificationByUserId(@PathVariable Long userId){
         List<Notification> notifications = notificationService.getAllNotificationByUserId(userId);
 
         List<NotificationDto> notificationDtos = notifications.stream().map(notification -> {
@@ -44,18 +44,19 @@ public class NotificationController {
             }
         }).collect(Collectors.toList());
 
-        return ResponseEntity.ok(notificationDtos);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Notification fetch by userId", notificationDtos));
     }
 
     @PutMapping("/{notificationId}/read")
-    public ResponseEntity<NotificationDto> markNotificationAsRead(@PathVariable Long notificationId) throws Exception {
+    public ResponseEntity<ApiResponse<NotificationDto>> markNotificationAsRead(@PathVariable Long notificationId) throws Exception {
         Notification notification = notificationService.markNotificationAsRead(notificationId);
         ApiResponse<BookingDto> response = notificationServiceCB.getBookingById(notification.getBookingId());
         if (!response.isSuccess() || response.getData() == null) {
             throw new RuntimeException("Booking fetch failed");
         }
         BookingDto bookingDto = response.getData();
-        return ResponseEntity.ok(NotificationMapper.mapToDto(notification, bookingDto));
+        NotificationDto notificationDto = NotificationMapper.mapToDto(notification, bookingDto);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Mark Notification as Read", notificationDto));
     }
 
 
