@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="retry and circuitBreaker changes">
+      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/payload/dto/ServiceDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/service/Impl/CategoryServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/service/Impl/CategoryServiceCB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceCB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceCB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ReviewService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/service/Impl/SalonServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/service/Impl/SalonServiceCB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/mapper/NotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/mapper/NotificationMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/payload/dto/BookingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/payload/dto/BookingDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/message/NotificationEventProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/message/NotificationEventProducer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,62 +48,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ApiGatewayApplication.executor": "Run",
-    "Application.BookingserviceApplication.executor": "Run",
-    "Application.CategoryserviceApplication.executor": "Run",
-    "Application.EurekaserverApplication.executor": "Run",
-    "Application.NotificationserviceApplication.executor": "Run",
-    "Application.OfferingServiceApplication.executor": "Run",
-    "Application.PaymentserviceApplication.executor": "Run",
-    "Application.ReviewserviceApplication.executor": "Run",
-    "Application.SalonServiceApplication.executor": "Run",
-    "Application.UserServiceApplication.executor": "Run",
-    "JUnit.AuthControllerTest.testLogin.executor": "Run",
-    "JUnit.AuthControllerTest.testSignUp.executor": "Run",
-    "JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken.executor": "Run",
-    "JUnit.AuthServiceImplTest.testLogin.executor": "Run",
-    "JUnit.AuthServiceImplTest.testSignUp.executor": "Run",
-    "JUnit.CategoryServiceImplTest.deleteCategory_WithSalon_Unauthorized.executor": "Run",
-    "JUnit.CategoryServiceImplTest.executor": "Debug",
-    "JUnit.CategoryServiceImplTest.getAllCategories.executor": "Run",
-    "JUnit.CategoryServiceImplTest.getCategoryByIdAndSalonId.executor": "Run",
-    "JUnit.CategoryServiceImplTest.saveCategory.executor": "Run",
-    "JUnit.KeycloakServiceTest.testGetAdminAccessTokenFailure.executor": "Run",
-    "JUnit.KeycloakServiceTest.testGetAdminAccessTone.executor": "Run",
-    "JUnit.KeycloakServiceTest.testGetFirstUserByUsername.executor": "Run",
-    "JUnit.KeycloakServiceTest.testGetRoleNyName.executor": "Run",
-    "JUnit.OfferingServiceTest.executor": "Run",
-    "JUnit.OfferingServiceTest.testToString.executor": "Run",
-    "JUnit.ReviewTest.executor": "Run",
-    "JUnit.ReviewTest.testReviewModel.executor": "Run",
-    "JUnit.SalonCategoryControllerTest.createCategory.executor": "Run",
-    "JUnit.SalonCategoryControllerTest.deleteCategory.executor": "Run",
-    "JUnit.SalonCategoryControllerTest.executor": "Debug",
-    "JUnit.SalonControllerTest.testCreateSalon.executor": "Run",
-    "JUnit.SalonControllerTest.testCreateSalonUserFailed.executor": "Run",
-    "JUnit.SalonServiceImplTest.testCreateSalon.executor": "Debug",
-    "JUnit.SalonServiceImplTest.testGetAllSalons.executor": "Run",
-    "JUnit.SalonServiceImplTest.testGetSalonById.executor": "Run",
-    "JUnit.SalonServiceImplTest.testGetSalonByIdNotFound.executor": "Run",
-    "JUnit.SalonServiceImplTest.testGetSalonByOwnerId.executor": "Run",
-    "JUnit.SalonServiceImplTest.testSearchSalonByCity.executor": "Run",
-    "JUnit.SalonServiceImplTest.testUpdateSalon.executor": "Run",
-    "JUnit.SalonServiceImplTest.testUpdateSalonNotFound.executor": "Run",
-    "JUnit.SalonTest.testImagesList.executor": "Run",
-    "JUnit.SalonTest.testSalonModel.executor": "Run",
-    "JUnit.SalonTest.testToString.executor": "Run",
-    "JUnit.UserTest.testUserGettersAndSetters.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Spring Boot/micro/salon",
-    "settings.editor.selected.configurable": "preferences.editor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApiGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BookingserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CategoryserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EurekaserverApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.NotificationserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OfferingServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PaymentserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ReviewserviceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SalonServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthControllerTest.testLogin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthControllerTest.testSignUp.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthServiceImplTest.testLogin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthServiceImplTest.testSignUp.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceImplTest.deleteCategory_WithSalon_Unauthorized.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceImplTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CategoryServiceImplTest.getAllCategories.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceImplTest.getCategoryByIdAndSalonId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CategoryServiceImplTest.saveCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeycloakServiceTest.testGetAdminAccessTokenFailure.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeycloakServiceTest.testGetAdminAccessTone.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeycloakServiceTest.testGetFirstUserByUsername.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeycloakServiceTest.testGetRoleNyName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OfferingServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OfferingServiceTest.testToString.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReviewTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReviewTest.testReviewModel.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonCategoryControllerTest.createCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonCategoryControllerTest.deleteCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonCategoryControllerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SalonControllerTest.testCreateSalon.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonControllerTest.testCreateSalonUserFailed.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonServiceImplTest.testCreateSalon.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SalonServiceImplTest.testGetAllSalons.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonServiceImplTest.testGetSalonById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonServiceImplTest.testGetSalonByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonServiceImplTest.testGetSalonByOwnerId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonServiceImplTest.testSearchSalonByCity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonServiceImplTest.testUpdateSalon.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonServiceImplTest.testUpdateSalonNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonTest.testImagesList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonTest.testSalonModel.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalonTest.testToString.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.testUserGettersAndSetters.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Spring Boot/micro/salon&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Spring Boot\micro\salon\UserService\src\main\java\com\userservice" />
@@ -122,14 +117,14 @@
       <recent name="com.bookingservice" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.notificationservice.payload.dto" />
       <recent name="com.notificationservice.service.client" />
       <recent name="com.notificationservice.payload.response" />
       <recent name="com.paymentservice.payload.response" />
       <recent name="com.userservice.payload.response" />
-      <recent name="com.offeringservice.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NotificationserviceApplication">
+  <component name="RunManager" selected="Application.UserServiceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -249,11 +244,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SalonServiceApplication" />
         <item itemvalue="Application.NotificationserviceApplication" />
         <item itemvalue="Application.OfferingServiceApplication" />
         <item itemvalue="Application.ReviewserviceApplication" />
         <item itemvalue="Application.CategoryserviceApplication" />
-        <item itemvalue="Application.SalonServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -410,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776593898940</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776598401294</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1776598401294</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">

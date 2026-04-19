@@ -33,6 +33,7 @@ public class NotificationController {
         List<NotificationDto> notificationDtos = notifications.stream().map(notification -> {
             try {
                 ApiResponse<BookingDto> response = notificationServiceCB.getBookingById(notification.getBookingId());
+//                System.out.println(response);
                 BookingDto bookingDto = null;
                 if (response != null && response.isSuccess() && response.getData() != null) {
                     bookingDto = response.getData();

@@ -16,4 +16,7 @@ public class BookingDto {
     private Set<Long> serviceIds;
     private BookingStatus bookingStatus;
     private int totalPrice;
+    private Set<ServiceDto> serviceDtoList;
+    private UserDto userDto;
+    private SalonDto salonDto;
 }

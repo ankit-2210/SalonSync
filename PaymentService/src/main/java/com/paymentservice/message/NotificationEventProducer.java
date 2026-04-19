@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @RequiredArgsConstructor
 public class NotificationEventProducer {
@@ -17,6 +19,7 @@ public class NotificationEventProducer {
         notificationDto.setSalonId(salonId);
         notificationDto.setDescription("New Booking Got Confirmed");
         notificationDto.setType("BOOKING");
+        notificationDto.setCreatedAt(LocalDateTime.now());
 
         System.out.println("Sending notification for booking: " + bookingId);
         rabbitTemplate.convertAndSend("notification-exchange", "notification.routing.key", notificationDto);
