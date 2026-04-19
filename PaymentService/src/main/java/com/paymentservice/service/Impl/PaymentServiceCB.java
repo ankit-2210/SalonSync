@@ -4,6 +4,7 @@ import com.paymentservice.payload.dto.UserDto;
 import com.paymentservice.payload.response.ApiResponse;
 import com.paymentservice.service.client.UserFeignClient;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class PaymentServiceCB {
     private final UserFeignClient userFeignClient;
 
+    @Retry(name = "userRetry", fallbackMethod = "userFallback")
     @CircuitBreaker(name = "userCB", fallbackMethod = "userFallback")
     public ApiResponse<UserDto> getUserProfile(String jwt) throws Exception {
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserProfile(jwt);
@@ -26,7 +28,7 @@ public class PaymentServiceCB {
         return new ApiResponse<>(false, "User Service Down", null);
     }
 
-    @CircuitBreaker(name="userCB", fallbackMethod = "userByIdFallback")
+    @CircuitBreaker(name="userByIdCB", fallbackMethod = "userByIdFallback")
     public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);
         if(response == null || response.getBody() == null){

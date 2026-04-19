@@ -26,7 +26,7 @@ public class SalonServiceCB {
         return new ApiResponse<>(false, "User Service Down", null);
     }
 
-    @CircuitBreaker(name="userCB", fallbackMethod = "userByIdFallback")
+    @CircuitBreaker(name="userByIdCB", fallbackMethod = "userByIdFallback")
     public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);
         if(response == null || response.getBody() == null){
@@ -38,6 +38,5 @@ public class SalonServiceCB {
     public ApiResponse<UserDto> userByIdFallback(Long userId, Throwable t){
         return new ApiResponse<>(false, "User Service is down. Please try later.", null);
     }
-
 
 }

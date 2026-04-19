@@ -42,7 +42,8 @@ public class BookingServiceCB {
     }
 
     // get user by id
-    @CircuitBreaker(name="userCB", fallbackMethod = "userByIdFallback")
+    @Retry(name="userByIdRetry", fallbackMethod = "userByIdFallback")
+    @CircuitBreaker(name="userByIdCB", fallbackMethod = "userByIdFallback")
     public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);
         if(response == null || response.getBody() == null){
@@ -66,10 +67,11 @@ public class BookingServiceCB {
         return response.getBody();
     }
     public ApiResponse<Set<ServiceDto>> offeringFallback(Set<Long> ids, Throwable t) {
-        return new ApiResponse<>(false, "Offering Service Down", null);
+        return new ApiResponse<>(false, "Offering Service Down", new HashSet<>());
     }
 
     // create payment link
+    @Retry(name="paymentRetry", fallbackMethod = "paymentFallback")
     @CircuitBreaker(name = "paymentCB", fallbackMethod = "paymentFallback")
     public ApiResponse<PaymentLinkResponse> createPaymentLink(BookingDto bookingDto, PaymentMethod method, String jwt) {
         ResponseEntity<ApiResponse<PaymentLinkResponse>> response = paymentFeignClient.createPaymentLink(bookingDto, method, jwt);
@@ -80,13 +82,15 @@ public class BookingServiceCB {
     }
 
     public ApiResponse<PaymentLinkResponse> paymentFallback(BookingDto bookingDto, PaymentMethod method, String jwt, Throwable t) {
-        t.printStackTrace();
-        return new ApiResponse<>(false, "Payment Service Down", null);
+        System.out.println("Payment fallback triggered");
+        PaymentLinkResponse fallback = new PaymentLinkResponse();
+        fallback.setPaymentLinkUrl("Payment_SERVICE_DOWN");
+        return new ApiResponse<>(false, "Payment Service Down", fallback);
     }
 
     // ger salon by id
-    @Retry(name = "salonRetry", fallbackMethod = "salonFallback")
-    @CircuitBreaker(name = "salonCB", fallbackMethod = "salonFallback")
+    @Retry(name = "salonByIdRetry", fallbackMethod = "salonFallback")
+    @CircuitBreaker(name = "salonByIdCB", fallbackMethod = "salonFallback")
     public ApiResponse<SalonDto> getSalonById(Long salonId) throws Exception {
         ResponseEntity<ApiResponse<SalonDto>> response = salonFeignClient.getSalonById(salonId);
         if (response == null || response.getBody() == null) {
@@ -99,8 +103,8 @@ public class BookingServiceCB {
     }
 
     // get salon by owner id
-    @Retry(name = "salonRetry", fallbackMethod = "salonOwnerFallback")
-    @CircuitBreaker(name = "salonCB", fallbackMethod = "salonOwnerFallback")
+    @Retry(name = "salonOwnerRetry", fallbackMethod = "salonOwnerFallback")
+    @CircuitBreaker(name = "salonOwnerCB", fallbackMethod = "salonOwnerFallback")
     public ApiResponse<List<SalonDto>> getSalonByOwnerId(String jwt) throws Exception {
         ResponseEntity<ApiResponse<List<SalonDto>>> response = salonFeignClient.getSalonByOwnerId(jwt);
         if (response == null || response.getBody() == null) {

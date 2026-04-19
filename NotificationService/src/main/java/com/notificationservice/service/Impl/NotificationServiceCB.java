@@ -31,7 +31,7 @@ public class NotificationServiceCB {
         return new ApiResponse<>(false, "User Service Down", null);
     }
 
-    @CircuitBreaker(name="userCB", fallbackMethod = "userByIdFallback")
+    @CircuitBreaker(name="userByIdCB", fallbackMethod = "userByIdFallback")
     public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);
         if(response == null || response.getBody() == null){
@@ -47,15 +47,15 @@ public class NotificationServiceCB {
 
     @Retry(name = "bookingRetry", fallbackMethod = "bookingFallback")
     @CircuitBreaker(name = "bookingCB", fallbackMethod = "bookingFallback")
-        public ApiResponse<BookingDto> getBookingById(Long bookingId) throws Exception {
-            ResponseEntity<ApiResponse<BookingDto>> response = bookingFeignClient.getBookingById(bookingId);
-            if (response == null || response.getBody() == null) {
-                return new ApiResponse<>(false, "Booking not found", null);
-            }
-            return response.getBody();
+    public ApiResponse<BookingDto> getBookingById(Long bookingId) throws Exception {
+        ResponseEntity<ApiResponse<BookingDto>> response = bookingFeignClient.getBookingById(bookingId);
+        if (response == null || response.getBody() == null) {
+            return new ApiResponse<>(false, "Booking not found", null);
         }
+        return response.getBody();
+    }
 
-    public ApiResponse<BookingDto> bookingFallback(String jwt, Throwable t) {
+    public ApiResponse<BookingDto> bookingFallback(Long bookingId, Throwable t) {
         return new ApiResponse<>(false, "Booking Service Down", null);
     }
 

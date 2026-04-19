@@ -6,6 +6,7 @@ import com.reviewservice.payload.response.ApiResponse;
 import com.reviewservice.service.client.SalonFeignClient;
 import com.reviewservice.service.client.UserFeignClient;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,8 @@ public class ReviewServiceCB {
     private final UserFeignClient userFeignClient;
     private final SalonFeignClient salonFeignClient;
 
+    // get User Profile
+    @Retry(name = "userRetry", fallbackMethod = "userFallback")
     @CircuitBreaker(name = "userCB", fallbackMethod = "userFallback")
     public ApiResponse<UserDto> getUserProfile(String jwt) throws Exception {
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserProfile(jwt);
@@ -32,7 +35,9 @@ public class ReviewServiceCB {
         return new ApiResponse<>(false, "User Service Down", null);
     }
 
-    @CircuitBreaker(name="userCB", fallbackMethod = "userByIdFallback")
+    // get user by id
+    @Retry(name="userByIdRetry", fallbackMethod = "userByIdFallback")
+    @CircuitBreaker(name="userByIdCB", fallbackMethod = "userByIdFallback")
     public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);
         if(response == null || response.getBody() == null){
@@ -45,8 +50,9 @@ public class ReviewServiceCB {
         return new ApiResponse<>(false, "User Service is down. Please try later.", null);
     }
 
-
-    @CircuitBreaker(name = "salonCB", fallbackMethod = "salonOwnerFallback")
+    // get salon by owner id
+    @Retry(name = "salonOwnerRetry", fallbackMethod = "salonOwnerFallback")
+    @CircuitBreaker(name = "salonOwnerCB", fallbackMethod = "salonOwnerFallback")
     public ApiResponse<List<SalonDto>> getSalonByOwnerId(String jwt) throws Exception {
         ResponseEntity<ApiResponse<List<SalonDto>>> response = salonFeignClient.getSalonByOwnerId(jwt);
         if (response == null || response.getBody() == null) {
@@ -60,7 +66,9 @@ public class ReviewServiceCB {
         return new ApiResponse<>(false, "Salon Service is currently unavailable. Please try again later.", null);
     }
 
-    @CircuitBreaker(name = "salonCB", fallbackMethod = "salonByIdFallback")
+    // ger salon by id
+    @Retry(name = "salonByIdRetry", fallbackMethod = "salonByIdFallback")
+    @CircuitBreaker(name = "salonByIdCB", fallbackMethod = "salonByIdFallback")
     public ApiResponse<SalonDto> getSalonById(Long salonId) throws Exception {
         ResponseEntity<ApiResponse<SalonDto>> response = salonFeignClient.getSalonById(salonId);
         if (response == null || response.getBody() == null) {
