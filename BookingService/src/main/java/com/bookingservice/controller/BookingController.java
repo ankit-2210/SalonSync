@@ -47,6 +47,7 @@ public class BookingController {
         }
 
         Booking booking = bookingService.createBooking(bookingRequest, userDto.getData(), salonDto.getData(), serviceDtoSet.getData());
+        booking = bookingService.saveBooking(booking);
         Set<ServiceDto> serviceDto = serviceDtoSet.getData();
         SalonDto salonDto1 = salonDto.getData();
         UserDto userDto1 = userDto.getData();
@@ -59,8 +60,6 @@ public class BookingController {
             return ResponseEntity.ok(paymentLinkResponse);
         }
 
-        // save booking after payment link success
-        bookingService.saveBooking(booking);
         return ResponseEntity.ok(new ApiResponse<>(true, "Booking Created", paymentLinkResponse.getData()));
     }
 
@@ -137,7 +136,7 @@ public class BookingController {
         return ResponseEntity.ok(new ApiResponse<>(true, "Booking fetched", bookingDto));
     }
 
-    @PostMapping("/{bookingId}/status")
+    @PutMapping("/{bookingId}/status")
     public ResponseEntity<ApiResponse<BookingDto>> updateBookingStatus(@PathVariable Long bookingId, @RequestParam BookingStatus bookingStatus) throws Exception {
         Booking booking = bookingService.updateBooking(bookingId, bookingStatus);
         Set<ServiceDto> serviceDtos = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
