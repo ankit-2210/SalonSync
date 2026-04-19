@@ -22,6 +22,7 @@ public class OfferingServicesServiceCB {
     private final SalonFeignClient salonFeignClient;
     private final CategoryFeignClient categoryFeignClient;
 
+    @Retry(name = "salonOwnerRetry", fallbackMethod = "salonOwnerFallback")
     @CircuitBreaker(name = "salonOwnerCB", fallbackMethod = "salonOwnerFallback")
     public ApiResponse<List<SalonDto>> getSalonByOwnerId(String jwt) throws Exception {
         ResponseEntity<ApiResponse<List<SalonDto>>> response = salonFeignClient.getSalonByOwnerId(jwt);
@@ -51,7 +52,7 @@ public class OfferingServicesServiceCB {
     }
 
     @Retry(name = "categoryRetry", fallbackMethod = "categoryFallback")
-    @CircuitBreaker(name="categoryDB", fallbackMethod = "categoryFallback")
+    @CircuitBreaker(name="categoryCB", fallbackMethod = "categoryFallback")
     public ApiResponse<CategoryDto> getCategoryByIdAndSalonId(Long categoryId, Long salonId) throws Exception {
         ResponseEntity<ApiResponse<CategoryDto>> categoryDtoResponseEntity = categoryFeignClient.getCategoryByIdAndSalonId(categoryId, salonId);
         if (categoryDtoResponseEntity == null || categoryDtoResponseEntity.getBody() == null) {

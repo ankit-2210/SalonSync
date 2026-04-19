@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="global exception handler code">
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="retry and circuitBreaker changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceCB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/Impl/NotificationServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/Impl/NotificationServiceCB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/service/Impl/CategoryServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/service/Impl/CategoryServiceCB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/NotificationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NotificationService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceCB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/service/Impl/PaymentServiceCB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/java/com/reviewservice/service/Impl/ReviewServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/ReviewService/src/main/java/com/reviewservice/service/Impl/ReviewServiceCB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReviewService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ReviewService/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/service/Impl/SalonServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/service/Impl/SalonServiceCB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SalonService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +129,7 @@
       <recent name="com.offeringservice.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CategoryserviceApplication">
+  <component name="RunManager" selected="Application.NotificationserviceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -183,12 +182,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OfferingServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.offeringservice.OfferingServiceApplication" />
-      <module name="offeringservice" />
+    <configuration name="NotificationserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.notificationservice.NotificationserviceApplication" />
+      <module name="notificationservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.offeringservice.*" />
+          <option name="PATTERN" value="com.notificationservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -196,12 +195,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.paymentservice.PaymentserviceApplication" />
-      <module name="paymentservice" />
+    <configuration name="OfferingServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.offeringservice.OfferingServiceApplication" />
+      <module name="offeringservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.paymentservice.*" />
+          <option name="PATTERN" value="com.offeringservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -250,11 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NotificationserviceApplication" />
+        <item itemvalue="Application.OfferingServiceApplication" />
+        <item itemvalue="Application.ReviewserviceApplication" />
         <item itemvalue="Application.CategoryserviceApplication" />
         <item itemvalue="Application.SalonServiceApplication" />
-        <item itemvalue="Application.ReviewserviceApplication" />
-        <item itemvalue="Application.PaymentserviceApplication" />
-        <item itemvalue="Application.OfferingServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -403,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776588412521</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776593898940</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1776593898940</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -440,7 +447,8 @@
     <MESSAGE value="so many changes happens" />
     <MESSAGE value="notification code change" />
     <MESSAGE value="global exception handler code" />
-    <option name="LAST_COMMIT_MESSAGE" value="global exception handler code" />
+    <MESSAGE value="retry and circuitBreaker changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="retry and circuitBreaker changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

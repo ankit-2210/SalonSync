@@ -33,10 +33,10 @@ public class NotificationController {
         List<NotificationDto> notificationDtos = notifications.stream().map(notification -> {
             try {
                 ApiResponse<BookingDto> response = notificationServiceCB.getBookingById(notification.getBookingId());
-                if (!response.isSuccess() || response.getData() == null) {
-                    throw new RuntimeException("Booking fetch failed");
+                BookingDto bookingDto = null;
+                if (response != null && response.isSuccess() && response.getData() != null) {
+                    bookingDto = response.getData();
                 }
-                BookingDto bookingDto = response.getData();
                 return NotificationMapper.mapToDto(notification, bookingDto);
             }
             catch (Exception e) {

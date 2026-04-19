@@ -4,6 +4,7 @@ import com.salonservice.payload.dto.UserDto;
 import com.salonservice.payload.response.ApiResponse;
 import com.salonservice.service.client.UserFeignClient;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Service;
 public class SalonServiceCB {
     private final UserFeignClient userFeignClient;
 
+    // get User Profile
+    @Retry(name = "userRetry", fallbackMethod = "userFallback")
     @CircuitBreaker(name = "userCB", fallbackMethod = "userFallback")
     public ApiResponse<UserDto> getUserProfile(String jwt) throws Exception {
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserProfile(jwt);
@@ -26,6 +29,8 @@ public class SalonServiceCB {
         return new ApiResponse<>(false, "User Service Down", null);
     }
 
+    // get user by id
+    @Retry(name="userByIdRetry", fallbackMethod = "userByIdFallback")
     @CircuitBreaker(name="userByIdCB", fallbackMethod = "userByIdFallback")
     public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);

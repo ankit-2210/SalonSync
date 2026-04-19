@@ -28,6 +28,8 @@ public class PaymentServiceCB {
         return new ApiResponse<>(false, "User Service Down", null);
     }
 
+
+    @Retry(name = "userByIdRetry", fallbackMethod = "userByIdFallback")
     @CircuitBreaker(name="userByIdCB", fallbackMethod = "userByIdFallback")
     public ApiResponse<UserDto> getUserById(Long userId) throws Exception{
         ResponseEntity<ApiResponse<UserDto>> response = userFeignClient.getUserById(userId);
