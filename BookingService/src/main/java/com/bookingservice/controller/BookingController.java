@@ -88,11 +88,8 @@ public class BookingController {
             return ResponseEntity.ok(new ApiResponse<>(false, "No salons found for owner", null));
         }
 
-        List<Booking> allBookings = new ArrayList<>();
-        for(SalonDto salon: salonDtos.getData()){
-            List<Booking> bookings = bookingService.getBookingsBySalon(salon.getId());
-            allBookings.addAll(bookings);
-        }
+        List<Long> salonIds = salonDtos.getData().stream().map(SalonDto::getId).toList();
+        List<Booking> allBookings = bookingService.getBookingsBySalonIds(salonIds);
         return ResponseEntity.ok(new ApiResponse<>(true, "Salon bookings fetched", getBookingDto(allBookings)));
     }
 

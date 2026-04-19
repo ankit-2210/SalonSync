@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="retry and circuitBreaker changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/repository/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/repository/BookingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/BookingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SalonService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +124,7 @@
       <recent name="com.userservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NotificationserviceApplication">
+  <component name="RunManager" selected="Application.BookingserviceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -417,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776613212675</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776622253854</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1776622253855</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">

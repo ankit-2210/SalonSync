@@ -97,8 +97,12 @@ public class BookingServiceImpl implements BookingService {
         if(booking == null){
             throw new Exception("Booking not found!");
         }
-
         return booking;
+    }
+
+    @Override
+    public List<Booking> getBookingsBySalonIds(List<Long> salonIds){
+        return bookingRepository.findBySalonIdIn(salonIds);
     }
 
     @Override
@@ -116,7 +120,6 @@ public class BookingServiceImpl implements BookingService {
 
         return bookingList.stream().filter(booking -> isSameDate(booking.getStartTime(), date) || isSameDate(booking.getEndTime(), date))
                             .collect(Collectors.toList());
-
     }
 
     private boolean isSameDate(LocalDateTime dateTime, LocalDate date){
