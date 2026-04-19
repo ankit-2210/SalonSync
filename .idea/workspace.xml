@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="retry and circuitBreaker changes">
-      <change afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/payload/dto/ServiceDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/controller/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/mapper/NotificationMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/mapper/NotificationMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/payload/dto/BookingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/payload/dto/BookingDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/message/NotificationEventProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/PaymentService/src/main/java/com/paymentservice/message/NotificationEventProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookingService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +120,7 @@
       <recent name="com.userservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserServiceApplication">
+  <component name="RunManager" selected="Application.NotificationserviceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -203,12 +199,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReviewserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.reviewservice.ReviewserviceApplication" />
-      <module name="reviewservice" />
+    <configuration name="PaymentserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.paymentservice.PaymentserviceApplication" />
+      <module name="paymentservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.reviewservice.*" />
+          <option name="PATTERN" value="com.paymentservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -244,11 +240,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SalonServiceApplication" />
         <item itemvalue="Application.NotificationserviceApplication" />
         <item itemvalue="Application.OfferingServiceApplication" />
-        <item itemvalue="Application.ReviewserviceApplication" />
         <item itemvalue="Application.CategoryserviceApplication" />
+        <item itemvalue="Application.SalonServiceApplication" />
+        <item itemvalue="Application.PaymentserviceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -413,7 +409,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776598401294</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776613212675</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1776613212675</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
