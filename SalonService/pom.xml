@@ -131,3 +131,5 @@
 	</build>
 
 </project>
+
+<!--mvn compile jib:build-->

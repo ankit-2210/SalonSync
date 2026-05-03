@@ -2,6 +2,7 @@ package com.userservice.controller;
 
 import com.userservice.payload.dto.LoginDTO;
 import com.userservice.payload.dto.SignDTO;
+import com.userservice.payload.response.ApiResponse;
 import com.userservice.payload.response.AuthResponse;
 import com.userservice.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -15,15 +16,15 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<AuthResponse> signUp(@RequestBody SignDTO signDTO) throws Exception {
+    public ResponseEntity<ApiResponse<AuthResponse>> signUp(@RequestBody SignDTO signDTO) throws Exception {
         AuthResponse authResponse = authService.signup(signDTO);
-        return ResponseEntity.ok(authResponse);
+        return ResponseEntity.ok(new ApiResponse<>(true, "SignUp Successfully", authResponse));
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginDTO loginDTO) throws Exception {
+    public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody LoginDTO loginDTO) throws Exception {
         AuthResponse authResponse = authService.login(loginDTO.getEmail(), loginDTO.getPassword());
-        return ResponseEntity.ok(authResponse);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Login Successfully", authResponse));
     }
 
     @GetMapping("/access-token/refresh-token/{refreshToken}")

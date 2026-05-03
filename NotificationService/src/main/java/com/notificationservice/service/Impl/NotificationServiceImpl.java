@@ -7,7 +7,6 @@ import com.notificationservice.payload.dto.NotificationDto;
 import com.notificationservice.payload.response.ApiResponse;
 import com.notificationservice.repository.NotificationRepository;
 import com.notificationservice.service.NotificationService;
-import com.notificationservice.service.client.BookingFeignClient;
 import lombok.*;
 import org.springframework.stereotype.*;
 

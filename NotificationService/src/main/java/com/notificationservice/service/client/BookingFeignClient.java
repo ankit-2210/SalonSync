@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface BookingFeignClient {
 
     @GetMapping("/api/bookings/{bookingId}")
-    ResponseEntity<ApiResponse<BookingDto>> getBookingById(@PathVariable("bookingId") Long bookingId) throws Exception;
+    ResponseEntity<ApiResponse<BookingDto>> getBookingById(@PathVariable("bookingId") Long bookingId);
 
 }

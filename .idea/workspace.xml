@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="retry and circuitBreaker changes">
+      <change afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/com/apigateway/response/ApiResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiGateway/src/main/java/com/apigateway/controller/FallbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiGateway/src/main/java/com/apigateway/controller/FallbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DockerCompose/default/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/DockerCompose/default/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/Impl/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/Impl/NotificationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/client/BookingFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/src/main/java/com/notificationservice/service/client/BookingFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SalonService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/Impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/Impl/AuthServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +120,14 @@
       <recent name="com.bookingservice" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.apigateway.response" />
       <recent name="com.notificationservice.payload.dto" />
       <recent name="com.notificationservice.service.client" />
       <recent name="com.notificationservice.payload.response" />
       <recent name="com.paymentservice.payload.response" />
-      <recent name="com.userservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BookingserviceApplication">
+  <component name="RunManager" selected="Application.UserServiceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -239,10 +247,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CategoryserviceApplication" />
+        <item itemvalue="Application.OfferingServiceApplication" />
         <item itemvalue="Application.SalonServiceApplication" />
         <item itemvalue="Application.NotificationserviceApplication" />
-        <item itemvalue="Application.OfferingServiceApplication" />
-        <item itemvalue="Application.CategoryserviceApplication" />
         <item itemvalue="Application.PaymentserviceApplication" />
       </list>
     </recent_temporary>
@@ -432,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776623843357</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776658431209</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1776658431209</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -490,6 +506,11 @@
           <line>2</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/Impl/AuthServiceImpl.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/SalonService/src/test/java/com/salonservice/service/SalonServiceImplTest.java</url>
           <line>29</line>
@@ -498,15 +519,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/SalonService/src/test/java/com/salonservice/service/SalonServiceImplTest.java</url>
-          <line>72</line>
-          <properties class="com.salonservice.service.SalonServiceImplTest" method="testUpdateSalonUnauthorized">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

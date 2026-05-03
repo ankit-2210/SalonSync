@@ -2,6 +2,7 @@ package com.userservice.service.Impl;
 
 import com.userservice.modal.User;
 import com.userservice.payload.dto.SignDTO;
+import com.userservice.payload.dto.UserDto;
 import com.userservice.payload.response.AuthResponse;
 import com.userservice.payload.response.TokenResponse;
 import com.userservice.repository.UserRepository;
@@ -18,12 +19,16 @@ public class AuthServiceImpl implements AuthService {
     private final KeycloakService keycloakService;
 
     @Override
-    public AuthResponse login(String username, String password) throws Exception {
-        TokenResponse tokenResponse = keycloakService.getAdminAccessToken(username, password, "password", null);
+    public AuthResponse login(String email, String password) throws Exception {
+        TokenResponse tokenResponse = keycloakService.getAdminAccessToken(email, password, "password", null);
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(()-> new RuntimeException("User not found"));
+
         AuthResponse authResponse = new AuthResponse();
         authResponse.setRefresh_token(tokenResponse.getRefreshToken());
         authResponse.setJwt(tokenResponse.getAccessToken());
         authResponse.setMessage("Login Successful");
+        authResponse.setUserRole(user.getRole());
         return authResponse;
     }
 
