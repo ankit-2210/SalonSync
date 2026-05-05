@@ -13,41 +13,42 @@ import java.util.*;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
 
-    @PostMapping("/api/users")
+    @PostMapping
     public ResponseEntity<ApiResponse<User>> createUser(@RequestBody @Valid User user){
         User newUser = userService.createUser(user);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ApiResponse<>(true, "User created successfully", newUser));
     }
 
-    @GetMapping("/api/users/profile")
+    @GetMapping("/profile")
     public ResponseEntity<ApiResponse<UserDto>> getUserProfile(@RequestHeader("Authorization") String jwt) throws Exception {
         UserDto user = userService.getUserFromJwt(jwt);
         return ResponseEntity.ok(new ApiResponse<>(true, "User profile fetched", user));
     }
 
-    @GetMapping("/api/users")
+    @GetMapping
     public ResponseEntity<ApiResponse<List<User>>> getUsers(){
         List<User> users = userService.getAllUser();
         return ResponseEntity.ok(new ApiResponse<>(true, "Users fetched successfully", users));
     }
 
-    @GetMapping("/api/users/{userId}")
+    @GetMapping("/{userId}")
     public ResponseEntity<ApiResponse<UserDto>> getUserById(@PathVariable("userId") Long id) throws Exception{
         UserDto user = userService.getUserById(id);
         return ResponseEntity.ok(new ApiResponse<>(true, "User by id fetched successfully", user));
     }
 
-    @PutMapping("/api/users/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<UserDto>> updateUser(@RequestBody User user, @PathVariable Long id) throws Exception{
         UserDto updatedUser = userService.updateUser(id, user);
         return ResponseEntity.ok(new ApiResponse<>(true, "User updated successfully", updatedUser));
     }
 
-    @DeleteMapping("/api/users/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> deleteUserById(@PathVariable Long id) throws Exception{
         userService.deleteUser(id);
         return ResponseEntity.ok(new ApiResponse<>(true, "User deleted successfully", null));
