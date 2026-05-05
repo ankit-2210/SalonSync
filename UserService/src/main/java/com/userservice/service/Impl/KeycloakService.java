@@ -163,6 +163,46 @@ public class KeycloakService {
         }
     }
 
+    public void changePassword(String userId, String newPassword, String token) throws Exception{
+        String url = KEYCLOAK_BASE_URL + "/admin/realms/master/users/" + userId + "/reset-password";
+
+        Credential credential = new Credential();
+        credential.setType("password");
+        credential.setValue(newPassword);
+        credential.setTemporary(false);
+
+        // Set header
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setBearerAuth(token);
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Credential> entity = new HttpEntity<>(credential, httpHeaders);
+        try{
+            restTemplate.exchange(url, HttpMethod.PUT, entity, String.class);
+        }
+        catch(Exception e){
+            throw new Exception("Failed to change password: " + e.getMessage());
+        }
+    }
+
+    public void sendResetPasswordEmail(String userId, String token) throws Exception {
+        String url = KEYCLOAK_BASE_URL + "/admin/realms/master/users/" + userId + "/execute-actions-email?client_id=" + CLIENT_ID;
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setBearerAuth(token);
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+        List<String> actions = Collections.singletonList("UPDATE_PASSWORD");
+
+        HttpEntity<List<String>> entity = new HttpEntity<>(actions, httpHeaders);
+        try {
+            ResponseEntity<Void> response = restTemplate.exchange(url, HttpMethod.PUT, entity, Void.class);
+            System.out.println("Keycloak response status: " + response.getStatusCode());
+        }
+        catch (Exception e) {
+            System.out.println("Keycloak error: " + e.getMessage());
+            throw new Exception("Failed to send reset password email: " + e.getMessage());
+        }
+    }
+
 }
 
 

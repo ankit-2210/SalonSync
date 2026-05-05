@@ -1,5 +1,6 @@
 package com.userservice.controller;
 
+import com.userservice.payload.dto.ChangePasswordDTO;
 import com.userservice.payload.dto.LoginDTO;
 import com.userservice.payload.dto.SignDTO;
 import com.userservice.payload.response.ApiResponse;
@@ -31,6 +32,18 @@ public class AuthController {
     public ResponseEntity<AuthResponse> getAccessToken(@PathVariable String refreshToken) throws Exception {
         AuthResponse authResponse = authService.getAccessTokenFromRefreshToken(refreshToken);
         return ResponseEntity.ok(authResponse);
+    }
+
+    @PutMapping("/change-password")
+    public ResponseEntity<ApiResponse<AuthResponse>> changePassword(@RequestBody ChangePasswordDTO request) throws Exception{
+        AuthResponse authResponse = authService.changePassword(request.getEmail(), request.getOldPassword(), request.getNewPassword());
+        return ResponseEntity.ok(new ApiResponse<>(true, "Password changed", authResponse));
+    }
+
+    @PutMapping("/forgot-password")
+    public ResponseEntity<ApiResponse<AuthResponse>> forgotPassword(@RequestParam String email) throws Exception{
+        AuthResponse authResponse = authService.forgotPassword(email);
+        return ResponseEntity.ok(new ApiResponse<>(true, authResponse.getMessage(), authResponse));
     }
 
 }

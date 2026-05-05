@@ -1,6 +1,7 @@
 package com.userservice.service.Impl;
 
 import com.userservice.modal.User;
+import com.userservice.payload.dto.KeycloakUserDTO;
 import com.userservice.payload.dto.SignDTO;
 import com.userservice.payload.dto.UserDto;
 import com.userservice.payload.response.AuthResponse;
@@ -52,6 +53,58 @@ public class AuthServiceImpl implements AuthService {
         authResponse.setMessage("Register Successful");
         return authResponse;
     }
+
+    @Override
+    public AuthResponse changePassword(String email, String oldPassword, String newPassword) throws Exception{
+        User dbUser = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        String username = dbUser.getUsername();
+
+        // verify old password
+        try {
+            keycloakService.getAdminAccessToken(username, oldPassword, "password", null);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Old password is incorrect");
+        }
+
+        // get admin token
+        TokenResponse tokenAdminResponse = keycloakService.getAdminAccessToken("ankit", "ankit", "password", null);
+        // get user from keycloak
+        KeycloakUserDTO keycloakUserDTO = keycloakService.getFirstUserByUsername(username, tokenAdminResponse.getAccessToken());
+        // change password
+        keycloakService.changePassword(keycloakUserDTO.getId(), newPassword, tokenAdminResponse.getAccessToken());
+
+        AuthResponse authResponse = new AuthResponse();
+        authResponse.setJwt(null);
+        authResponse.setRefresh_token(null);
+        authResponse.setUserRole(dbUser.getRole());
+        authResponse.setMessage("Password changed successfully");
+        return authResponse;
+    }
+
+    @Override
+    public AuthResponse forgotPassword(String email) throws Exception{
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        String username = user.getUsername();
+        // get admin token
+        TokenResponse tokenAdminResponse = keycloakService.getAdminAccessToken("ankit", "ankit", "password", null);
+        // get user from keycloak
+        KeycloakUserDTO keycloakUserDTO = keycloakService.getFirstUserByUsername(username, tokenAdminResponse.getAccessToken());
+
+        keycloakService.sendResetPasswordEmail(keycloakUserDTO.getId(), tokenAdminResponse.getAccessToken());
+
+        AuthResponse authResponse = new AuthResponse();
+        authResponse.setJwt(null);
+        authResponse.setRefresh_token(null);
+        authResponse.setUserRole(user.getRole());
+        authResponse.setMessage("Reset password email sent successfully");
+        return authResponse;
+    }
+
 
     @Override
     public AuthResponse getAccessTokenFromRefreshToken(String refreshToken) throws Exception {
