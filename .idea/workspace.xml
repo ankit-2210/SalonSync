@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="UserController.java changes">
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/payload/dto/ChangePasswordDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/Impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/Impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/controller/SalonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/controller/SalonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/mapper/SalonMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/mapper/SalonMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/modal/Salon.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/modal/Salon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/payload/dto/SalonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/payload/dto/SalonDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/service/Impl/SalonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/service/Impl/SalonServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/service/SalonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/service/SalonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/Impl/KeycloakService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/userservice/service/Impl/KeycloakService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +144,7 @@
       <recent name="com.paymentservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserServiceApplication">
+  <component name="RunManager" selected="Application.SalonServiceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -263,9 +264,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SalonServiceApplication" />
         <item itemvalue="Application.CategoryserviceApplication" />
         <item itemvalue="Application.OfferingServiceApplication" />
-        <item itemvalue="Application.SalonServiceApplication" />
         <item itemvalue="Application.NotificationserviceApplication" />
         <item itemvalue="Application.PaymentserviceApplication" />
       </list>
@@ -496,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777960683746</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="UserController.java changes">
+      <option name="closed" value="true" />
+      <created>1777982618973</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1777982618974</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="UnknownFeatures">

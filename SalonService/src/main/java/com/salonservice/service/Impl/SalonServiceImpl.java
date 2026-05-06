@@ -1,5 +1,6 @@
 package com.salonservice.service.Impl;
 
+import com.salonservice.exception.ResourceNotFoundException;
 import com.salonservice.modal.Salon;
 import com.salonservice.payload.dto.SalonDto;
 import com.salonservice.payload.dto.UserDto;
@@ -28,6 +29,7 @@ public class SalonServiceImpl implements SalonService {
         salon.setOpenTime(salonDto.getOpenTime());
         salon.setCloseTime(salonDto.getCloseTime());
         salon.setPhoneNumber(salonDto.getPhoneNumber());
+        salon.setActive(true);
         return salonRepository.save(salon);
     }
 
@@ -57,6 +59,14 @@ public class SalonServiceImpl implements SalonService {
     }
 
     @Override
+    public List<Salon> getAllSalonsActive(){
+        return salonRepository.findAll()
+                .stream()
+                .filter(Salon::isActive)
+                .toList();
+    }
+
+    @Override
     public Salon getSalonById(Long salonId) throws Exception{
         Salon salon = salonRepository.findById(salonId).orElse(null);
         if(salon == null){
@@ -74,4 +84,30 @@ public class SalonServiceImpl implements SalonService {
     public List<Salon> searchSalonByCity(String city) {
         return salonRepository.searchSalons(city);
     }
+
+    @Override
+    public void deleteSalon(Long salonId, Long userId) {
+        Salon salon = salonRepository.findById(salonId)
+                .orElseThrow(() -> new ResourceNotFoundException("Salon not found with id: " + salonId));
+
+        if(!salon.getOwnerId().equals(userId)){
+            throw new IllegalArgumentException("You are not authorized to delete this salon");
+        }
+
+        salonRepository.delete(salon);
+    }
+
+    @Override
+    public Salon toggleSalonStatus(Long salonId, Long userId){
+        Salon salon = salonRepository.findById(salonId)
+                .orElseThrow(() -> new ResourceNotFoundException("Salon not found with id: " + salonId));
+
+        if(!salon.getOwnerId().equals(userId)){
+            throw new IllegalArgumentException("You are not authorized to delete this salon");
+        }
+        salon.setActive(!salon.isActive());
+        return salonRepository.save(salon);
+    }
+
+
 }

@@ -35,6 +35,9 @@ public class Salon {
     private Long ownerId;
 
     @Column(nullable = false)
+    private boolean active;
+
+    @Column(nullable = false)
     private LocalTime openTime;
 
     @Column(nullable = false)

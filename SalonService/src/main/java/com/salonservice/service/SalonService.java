@@ -12,13 +12,16 @@ public interface SalonService {
 
     List<Salon> getAllSalons();
 
+    List<Salon> getAllSalonsActive();
+
     Salon getSalonById(Long salonId) throws Exception;
 
     List<Salon> getSalonByOwnerId(Long ownerId);
 
     List<Salon> searchSalonByCity(String city);
 
+    void deleteSalon(Long salonId, Long userId);
 
-
+    Salon toggleSalonStatus(Long salonId, Long userId);
 
 }

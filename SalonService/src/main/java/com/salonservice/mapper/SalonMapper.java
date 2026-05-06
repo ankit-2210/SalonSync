@@ -17,6 +17,7 @@ public class SalonMapper {
         salonDto.setOpenTime(salon.getOpenTime());
         salonDto.setPhoneNumber(salon.getPhoneNumber());
         salonDto.setOwnerId(salon.getOwnerId());
+        salonDto.setActive(salon.isActive());
         return salonDto;
     }
 
