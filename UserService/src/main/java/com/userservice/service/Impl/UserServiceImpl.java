@@ -56,10 +56,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDto toggleUserStatus(Long userId){
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
+        user.setActive(!user.isActive());
+        User updatedUser = userRepository.save(user);
+        return UserMapper.toDto(updatedUser);
+    }
+
+
+    @Override
     public UserDto getUserFromJwt(String jwt) throws Exception {
         KeycloakUserDTO keycloakUserDTO = keycloakService.getUserProfileByJwt(jwt);
         User user = userRepository.findByEmail(keycloakUserDTO.getEmail())
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with email: " + keycloakUserDTO.getEmail()));
         return UserMapper.toDto(user);
     }
+
 }

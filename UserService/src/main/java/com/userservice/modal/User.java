@@ -46,4 +46,7 @@ public class User {
     @NotBlank(message="password is mandatory!")
     private String password;
 
+    @Column(nullable = false)
+    private boolean active;
+
 }

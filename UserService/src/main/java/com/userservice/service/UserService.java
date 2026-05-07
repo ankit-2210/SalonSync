@@ -11,6 +11,7 @@ public interface UserService {
     List<User> getAllUser();
     void deleteUser(Long id);
     UserDto updateUser(Long id, User user);
+    UserDto toggleUserStatus(Long userId);
 
     UserDto getUserFromJwt(String jwt) throws Exception;
 

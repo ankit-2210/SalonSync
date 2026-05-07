@@ -54,4 +54,10 @@ public class UserController {
         return ResponseEntity.ok(new ApiResponse<>(true, "User deleted successfully", null));
     }
 
+    @PutMapping("/{id}/toggle-status")
+    public ResponseEntity<ApiResponse<UserDto>> toggleSalonStatus(@PathVariable("id") Long userId) throws Exception {
+        UserDto userDto = userService.toggleUserStatus(userId);
+        return ResponseEntity.ok(new ApiResponse<>(true, "User status updated", userDto));
+    }
+
 }

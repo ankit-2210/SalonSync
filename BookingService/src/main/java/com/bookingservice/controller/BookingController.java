@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @RestController
@@ -33,15 +34,50 @@ public class BookingController {
     // create booking
     @PostMapping
     public ResponseEntity<ApiResponse<?>> createBooking(@RequestParam Long salonId, @RequestParam PaymentMethod paymentMethod, @RequestBody BookingRequest bookingRequest, @RequestHeader("Authorization") String jwt) throws Exception {
-        ApiResponse<UserDto> userDto = bookingServiceCB.getUserProfile(jwt);
+//        ApiResponse<UserDto> userDto = bookingServiceCB.getUserProfile(jwt);
+//        if(!userDto.isSuccess()){
+//            return ResponseEntity.ok(userDto);
+//        }
+//        ApiResponse<SalonDto> salonDto = bookingServiceCB.getSalonById(salonId);
+//        if(!salonDto.isSuccess()){
+//            return ResponseEntity.ok(salonDto);
+//        }
+//        ApiResponse<Set<ServiceDto>> serviceDtoSet = bookingServiceCB.getServicesByIds(bookingRequest.getServiceIds());
+//        if(!serviceDtoSet.isSuccess()){
+//            return ResponseEntity.ok(serviceDtoSet);
+//        }
+
+        CompletableFuture<ApiResponse<UserDto>> userFuture =
+                CompletableFuture.supplyAsync(() -> {
+                    try {
+                        return bookingServiceCB.getUserProfile(jwt);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+        CompletableFuture<ApiResponse<SalonDto>> salonFuture =
+                CompletableFuture.supplyAsync(() -> {
+                    try {
+                        return bookingServiceCB.getSalonById(salonId);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+
+        CompletableFuture<ApiResponse<Set<ServiceDto>>> servicesFuture =
+                CompletableFuture.supplyAsync(() ->
+                        bookingServiceCB.getServicesByIds(bookingRequest.getServiceIds()));
+
+        ApiResponse<UserDto> userDto = userFuture.join();
+        ApiResponse<SalonDto> salonDto = salonFuture.join();
+        ApiResponse<Set<ServiceDto>> serviceDtoSet = servicesFuture.join();
+
         if(!userDto.isSuccess()){
             return ResponseEntity.ok(userDto);
         }
-        ApiResponse<SalonDto> salonDto = bookingServiceCB.getSalonById(salonId);
         if(!salonDto.isSuccess()){
             return ResponseEntity.ok(salonDto);
         }
-        ApiResponse<Set<ServiceDto>> serviceDtoSet = bookingServiceCB.getServicesByIds(bookingRequest.getServiceIds());
         if(!serviceDtoSet.isSuccess()){
             return ResponseEntity.ok(serviceDtoSet);
         }
