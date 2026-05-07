@@ -9,6 +9,7 @@ public interface UserService {
     User createUser(User user);
     UserDto getUserById(Long id);
     List<User> getAllUser();
+    List<User> getAllUsersActive();
     void deleteUser(Long id);
     UserDto updateUser(Long id, User user);
     UserDto toggleUserStatus(Long userId);

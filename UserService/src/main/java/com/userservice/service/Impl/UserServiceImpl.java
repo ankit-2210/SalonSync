@@ -37,6 +37,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> getAllUsersActive(){
+        return userRepository.findAll()
+                .stream()
+                .filter(User::isActive)
+                .toList();
+    }
+
+
+    @Override
     public void deleteUser(Long id){
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not exist with id: " + id));

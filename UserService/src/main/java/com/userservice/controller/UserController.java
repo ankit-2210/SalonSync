@@ -1,5 +1,6 @@
 package com.userservice.controller;
 
+import com.userservice.mapper.UserMapper;
 import com.userservice.modal.User;
 import com.userservice.payload.dto.UserDto;
 import com.userservice.payload.response.ApiResponse;
@@ -58,6 +59,15 @@ public class UserController {
     public ResponseEntity<ApiResponse<UserDto>> toggleSalonStatus(@PathVariable("id") Long userId) throws Exception {
         UserDto userDto = userService.toggleUserStatus(userId);
         return ResponseEntity.ok(new ApiResponse<>(true, "User status updated", userDto));
+    }
+
+    @GetMapping("/active")
+    public ResponseEntity<ApiResponse<List<UserDto>>> getUsersActive(){
+        List<User> users = userService.getAllUsersActive();
+        List<UserDto> userDtos = users.stream()
+                .map(UserMapper::toDto)
+                .toList();
+        return ResponseEntity.ok(new ApiResponse<>(true, "Active users fetched", userDtos));
     }
 
 }
