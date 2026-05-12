@@ -51,10 +51,9 @@ public class AuthControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(signDTO)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.jwt").value("jwt-token"))
-                .andExpect(jsonPath("$.refresh_token").value("refresh-token"))
-                .andExpect(jsonPath("$.message").value("Register Successful"));
-
+                .andExpect(jsonPath("$.data.jwt").value("jwt-token"))
+                .andExpect(jsonPath("$.data.refresh_token").value("refresh-token"))
+                .andExpect(jsonPath("$.data.message").value("Register Successful"));
         verify(authService, times(1)).signup(any(SignDTO.class));
     }
 
@@ -75,8 +74,8 @@ public class AuthControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(loginDTO)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.jwt").value("jwt-token"))
-                .andExpect(jsonPath("$.message").value("Login Successful"));
+                .andExpect(jsonPath("$.data.jwt").value("jwt-token"))
+                .andExpect(jsonPath("$.data.message").value("Login Successful"));
 
         verify(authService, times(1)).login(loginDTO.getEmail(), loginDTO.getPassword());
     }

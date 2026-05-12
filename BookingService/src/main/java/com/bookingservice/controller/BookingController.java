@@ -1,9 +1,11 @@
 package com.bookingservice.controller;
 
 import com.bookingservice.mapper.BookingMapper;
+import com.bookingservice.mapper.BookingReportMapper;
 import com.bookingservice.model.Booking;
 import com.bookingservice.payload.response.ApiResponse;
 import com.bookingservice.service.Impl.BookingServiceCB;
+import com.bookingservice.service.JasperReportService;
 import com.bookingservice.utils.SalonReport;
 import com.bookingservice.payload.dto.BookingDto;
 import com.bookingservice.payload.dto.*;
@@ -30,6 +32,7 @@ import java.util.stream.Collectors;
 public class BookingController {
     private final BookingService bookingService;
     private final BookingServiceCB bookingServiceCB;
+    private final JasperReportService jasperReportService;
 
     // create booking
     @PostMapping
@@ -161,9 +164,34 @@ public class BookingController {
     @GetMapping("/{bookingId}")
     public ResponseEntity<ApiResponse<BookingDto>> getBookingById(@PathVariable("bookingId") Long bookingId) throws Exception {
         Booking booking = bookingService.getBookingById(bookingId);
-        Set<ServiceDto> serviceDtos = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
-        SalonDto salonDto = bookingServiceCB.getSalonById(booking.getSalonId()).getData();
-        UserDto userDto = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+//        Set<ServiceDto> serviceDtos = bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData();
+//        SalonDto salonDto = bookingServiceCB.getSalonById(booking.getSalonId()).getData();
+//        UserDto userDto = bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+
+        CompletableFuture<Set<ServiceDto>> serviceFuture = CompletableFuture
+                .supplyAsync(()-> bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData());
+        CompletableFuture<SalonDto> salonFuture =
+                CompletableFuture.supplyAsync(() -> {
+                    try {
+                        return bookingServiceCB.getSalonById(booking.getSalonId()).getData();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+        CompletableFuture<UserDto> userFuture = CompletableFuture
+                .supplyAsync(()->{
+                    try{
+                        return bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+                    }
+                    catch (Exception e){
+                        throw new RuntimeException(e);
+                    }
+                });
+        CompletableFuture.allOf(serviceFuture, salonFuture, userFuture).join();
+
+        Set<ServiceDto> serviceDtos = serviceFuture.join();
+        SalonDto salonDto = salonFuture.join();
+        UserDto userDto = userFuture.join();
 
         BookingDto bookingDto = BookingMapper.bookingDto(booking, serviceDtos, salonDto, userDto);
         return ResponseEntity.ok(new ApiResponse<>(true, "Booking fetched", bookingDto));
@@ -227,6 +255,52 @@ public class BookingController {
 
         SalonReport salonReport = bookingService.getSalonReport(salonId);
         return ResponseEntity.ok(new ApiResponse<>(true, "Report fetched", salonReport));
+    }
+
+    @GetMapping("/{bookingId}/pdf")
+    public ResponseEntity<byte[]> generateBookingPdf(@PathVariable Long bookingId) throws Exception{
+        // Get Booking
+        Booking booking = bookingService.getBookingById(bookingId);
+
+        // Async Calls
+        CompletableFuture<Set<ServiceDto>> serviceFuture = CompletableFuture
+                .supplyAsync(()-> bookingServiceCB.getServicesByIds(booking.getServiceIds()).getData());
+        CompletableFuture<SalonDto> salonFuture =
+                CompletableFuture.supplyAsync(() -> {
+                    try {
+                        return bookingServiceCB.getSalonById(booking.getSalonId()).getData();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+        CompletableFuture<UserDto> userFuture = CompletableFuture
+                .supplyAsync(()->{
+                    try{
+                        return bookingServiceCB.getUserById(booking.getCustomerId()).getData();
+                    }
+                    catch (Exception e){
+                        throw new RuntimeException(e);
+                    }
+                });
+        CompletableFuture.allOf(serviceFuture, salonFuture, userFuture).join();
+
+        // Get Data
+        Set<ServiceDto> serviceDtos = serviceFuture.join();
+        SalonDto salonDto = salonFuture.join();
+        UserDto userDto = userFuture.join();
+
+        // Convert to BookingDto
+        BookingDto bookingDto = BookingMapper.bookingDto(booking, serviceDtos, salonDto, userDto);
+
+        // convert to Report DTO
+        BookingReportDto reportDto = BookingReportMapper.mapToReportDto(bookingDto);
+
+        // generate pdf
+        byte[] pdf = jasperReportService.generateBookingPdf(reportDto);
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "inline; filename=booking-report.pdf")
+                .header("Content-Type", "application/pdf")
+                .body(pdf);
     }
 
 }

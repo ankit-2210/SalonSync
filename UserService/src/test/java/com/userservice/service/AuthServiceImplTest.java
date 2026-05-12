@@ -42,7 +42,15 @@ public class AuthServiceImplTest {
     // test - login
     @Test
     void testLogin() throws Exception {
-        when(keycloakService.getAdminAccessToken(any(), any(), any(), any())).thenReturn(tokenResponse);
+        User user = new User();
+        user.setEmail("user");
+        user.setPassword("pass");
+
+        when(userRepository.findByEmail(anyString()))
+                .thenReturn(Optional.of(user));
+
+        when(keycloakService.getAdminAccessToken(any(), any(), any(), any()))
+                .thenReturn(tokenResponse);
 
         AuthResponse authResponse = authService.login("user", "pass");
         assertEquals("access-token", authResponse.getJwt());
