@@ -216,6 +216,8 @@ services:
     depends_on:
       - salon-db
       - eurekaserver
+      - rabbitmq
+      - redis
     environment:
       SPRING_APPLICATION_NAME: "NotificationService"
       SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
@@ -223,6 +225,10 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
     networks:
       - salon-network
