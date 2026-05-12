@@ -22,8 +22,15 @@ public class NotificationController {
     private final NotificationServiceCB notificationServiceCB;
 
     @PostMapping
-    public ResponseEntity<NotificationDto> createNotification(@RequestBody Notification notification) throws Exception {
-        return ResponseEntity.ok(notificationService.createNotification(notification));
+    public ResponseEntity<ApiResponse<NotificationDto>> createNotification(@RequestBody Notification notification) throws Exception {
+        Notification savedNotification = notificationService.createNotification(notification);
+        ApiResponse<BookingDto> response = notificationServiceCB.getBookingById(notification.getBookingId());
+        if (!response.isSuccess() || response.getData() == null) {
+            throw new RuntimeException("Booking fetch failed");
+        }
+        BookingDto bookingDto = response.getData();
+        NotificationDto notificationDto = NotificationMapper.mapToDto(savedNotification, bookingDto);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Notification created", notificationDto));
     }
 
     @GetMapping("/user/{userId}")

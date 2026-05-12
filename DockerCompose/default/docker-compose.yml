@@ -196,6 +196,16 @@ services:
     networks:
       - salon-network
 
+    # ================= REDIS =================
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - salon-network
+
   # ================= NOTIFICATION SERVICE =================
   notificationservice:
     image: ankitagarwal2210/notificationservice
@@ -211,6 +221,8 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:mysql://salon-db:3306/salonbooking"
       SPRING_DATASOURCE_USERNAME: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
     networks:
       - salon-network

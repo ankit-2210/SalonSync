@@ -19,14 +19,8 @@ public class NotificationServiceImpl implements NotificationService {
     private final NotificationServiceCB notificationServiceCB;
 
     @Override
-    public NotificationDto createNotification(Notification notification) throws Exception{
-        Notification savedNotification = notificationRepository.save(notification);
-        ApiResponse<BookingDto> response = notificationServiceCB.getBookingById(notification.getBookingId());
-        if (!response.isSuccess() || response.getData() == null) {
-            throw new RuntimeException("Booking fetch failed");
-        }
-        BookingDto bookingDto = response.getData();
-        return NotificationMapper.mapToDto(savedNotification, bookingDto);
+    public Notification createNotification(Notification notification) throws Exception{
+        return notificationRepository.save(notification);
     }
 
     @Override
