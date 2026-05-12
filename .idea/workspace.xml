@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="users changes made">
-      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/mapper/BookingReportMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/payload/dto/BookingReportDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/Impl/JasperReportServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/service/JasperReportService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookingService/src/main/resources/images/salonlogo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BookingService/src/main/resources/reports/salon_report.jrxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CategoryService/src/test/java/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/utils/JasperReportUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookingService/src/main/java/com/bookingservice/utils/JasperReportUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DockerCompose/default/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/DockerCompose/default/docker-compose.yml" afterDir="false" />
-    </list>
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="users changes made" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -538,7 +525,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778177865620</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="users changes made">
+      <option name="closed" value="true" />
+      <created>1778587069582</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1778587069582</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="UnknownFeatures">

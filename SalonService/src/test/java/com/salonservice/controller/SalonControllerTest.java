@@ -66,15 +66,19 @@ public class SalonControllerTest {
 
     @Test
     void testCreateSalonUserFailed() throws Exception {
-        ApiResponse<UserDto> userResponse = new ApiResponse<>(true, "User fetch failed", null);
+        ApiResponse<UserDto> userResponse =
+                new ApiResponse<>(false, "User fetch failed", null);
 
-        when(salonServiceCB.getUserProfile(anyString())).thenReturn(userResponse);
+        when(salonServiceCB.getUserProfile(anyString()))
+                .thenReturn(userResponse);
+
         mockMvc.perform(post("/api/salons")
                         .header("Authorization", "token")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{}"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.success").value(false));
+                .andExpect(jsonPath("$.success").value(false))
+                .andExpect(jsonPath("$.message").value("User fetch failed"));
     }
 
 }
