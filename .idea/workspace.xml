@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="users changes made">
-      <change beforePath="$PROJECT_DIR$/DockerCompose/default/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/DockerCompose/default/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotificationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NotificationService/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="NotificationController changes made" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -560,7 +557,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778599376365</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="NotificationController changes made">
+      <option name="closed" value="true" />
+      <created>1778602418907</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1778602418907</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -602,7 +607,8 @@
     <MESSAGE value="UserController.java changes" />
     <MESSAGE value="Salon changes made" />
     <MESSAGE value="users changes made" />
-    <option name="LAST_COMMIT_MESSAGE" value="users changes made" />
+    <MESSAGE value="NotificationController changes made" />
+    <option name="LAST_COMMIT_MESSAGE" value="NotificationController changes made" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
