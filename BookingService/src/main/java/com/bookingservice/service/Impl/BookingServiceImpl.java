@@ -118,7 +118,9 @@ public class BookingServiceImpl implements BookingService {
         if(date == null)
             return bookingList;
 
-        return bookingList.stream().filter(booking -> isSameDate(booking.getStartTime(), date) || isSameDate(booking.getEndTime(), date))
+        return bookingList
+                .stream()
+                .filter(booking -> isSameDate(booking.getStartTime(), date) || isSameDate(booking.getEndTime(), date))
                             .collect(Collectors.toList());
     }
 

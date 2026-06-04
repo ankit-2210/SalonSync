@@ -4,6 +4,7 @@ import com.categoryservice.modal.Category;
 import com.categoryservice.payload.dto.CategoryDto;
 import com.categoryservice.payload.dto.SalonDto;
 import com.categoryservice.payload.response.ApiResponse;
+import com.categoryservice.payload.response.CategoryResponse;
 import com.categoryservice.service.CategoryService;
 import com.categoryservice.service.Impl.CategoryServiceCB;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ public class SalonCategoryControllerTest {
         when(categoryServiceCB.getSalonByOwnerId(anyString())).thenReturn(new ApiResponse<>(true, "ok", List.of(salonDto)));
         when(categoryService.saveCategory(any(), any())).thenReturn(new Category());
 
-        ResponseEntity<ApiResponse<?>> response = controller.createCategory(categoryDto, "jwt");
+        ResponseEntity<ApiResponse<CategoryResponse>> response = controller.createCategory(categoryDto, "jwt");
         assertTrue(response.getBody().isSuccess());
     }
 
@@ -48,7 +49,7 @@ public class SalonCategoryControllerTest {
         when(categoryServiceCB.getSalonByOwnerId(anyString())).thenReturn(new ApiResponse<>(true, "ok", List.of(salonDto)));
         when(categoryService.saveCategory(any(), any())).thenReturn(new Category());
 
-        ResponseEntity<ApiResponse<?>> response = controller.deleteCategory(1L, "jwt");
+        ResponseEntity<ApiResponse<CategoryResponse>> response = controller.deleteCategory(1L, "jwt");
         assertTrue(response.getBody().isSuccess());
     }
 
