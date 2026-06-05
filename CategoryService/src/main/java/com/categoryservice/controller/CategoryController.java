@@ -93,37 +93,46 @@ public class CategoryController {
     private ResponseEntity<ApiResponse<List<CategoryResponse>>> getAllCategories(){
         List<Category> categories = categoryService.getAllCategories();
 
-        List<CategoryResponse> responses = new ArrayList<>();
-        for (Category category : categories) {
-            try {
-                CompletableFuture<SalonDto> salonFuture =
-                        CompletableFuture.supplyAsync(() -> {
-                            try {
-                                return categoryServiceCB.getSalonById(category.getSalonId()).getData();
-                            }
-                            catch (Exception e) {
-                                throw new ResourceNotFoundException("Salon Id not found");
-                            }
-                        });
-                SalonDto salonDto = salonFuture.get();
+        List<CategoryResponse> responses = categories.stream()
+                .map(category -> {
+                   try{
+                        SalonDto salonDto = CompletableFuture
+                                .supplyAsync(()->{
+                                    try{
+                                        ApiResponse<SalonDto> response = categoryServiceCB.getSalonById(category.getSalonId());
+                                        if (!response.isSuccess() || response.getData() == null) {
+                                            throw new ResourceNotFoundException("Salon not found : " + category.getSalonId());
+                                        }
+                                        return response.getData();
+                                    }
+                                    catch (Exception e) {
+                                        throw new ResourceNotFoundException("Salon fetch failed : " + category.getSalonId());
+                                    }
+                                })
+                                .join();
 
-                CompletableFuture<UserDto> userFuture =
-                        CompletableFuture.supplyAsync(() -> {
-                            try {
-                                return categoryServiceCB.getUserById(salonDto.getOwnerId()).getData();
-                            }
-                            catch (Exception e) {
-                                throw new ResourceNotFoundException("User Id not found");
-                            }
-                        });
-                UserDto userDto = userFuture.get();
+                        UserDto userDto = CompletableFuture
+                                .supplyAsync(() -> {
+                                    try{
+                                        ApiResponse<UserDto> response = categoryServiceCB.getUserById(salonDto.getOwnerId());
+                                        if (!response.isSuccess() || response.getData() == null) {
+                                            throw new ResourceNotFoundException("Owner not found : " + salonDto.getOwnerId());
+                                        }
+                                        return response.getData();
+                                    }
+                                    catch (Exception e) {
+                                        throw new ResourceNotFoundException("User fetch failed : " + salonDto.getOwnerId());                                    }
+                                }).join();
 
-                responses.add(CategoryMapper.toResponse(category, salonDto, userDto));
-            }
-            catch (Exception e) {
-                System.err.println("Failed to process category " + category.getId() + ": " + e.getMessage());
-            }
-        }
+                        return CategoryMapper.toResponse(category, salonDto, userDto);
+                   }
+                   catch (Exception e) {
+                        System.err.println("Category Processing Failed => ID : " + category.getId() + " Reason : " + e.getMessage());
+                        return null;
+                    }
+                })
+                .filter(Objects::nonNull)
+                .toList();
 
         return ResponseEntity.ok(new ApiResponse<>(true, "All categories fetched", responses));
     }

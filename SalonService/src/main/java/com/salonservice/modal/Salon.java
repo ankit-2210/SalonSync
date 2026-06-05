@@ -16,7 +16,12 @@ public class Salon {
     @Column(nullable = false)
     private String name;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+            name = "salon_images",
+            joinColumns = @JoinColumn(name = "salon_id")
+    )
+    @Column(name = "image_url")
     private List<String> images;
 
     @Column(nullable = false)

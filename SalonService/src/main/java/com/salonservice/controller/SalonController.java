@@ -1,5 +1,6 @@
 package com.salonservice.controller;
 
+import com.salonservice.exception.ResourceNotFoundException;
 import com.salonservice.mapper.SalonMapper;
 import com.salonservice.modal.Salon;
 import com.salonservice.payload.dto.SalonDto;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/salons")
@@ -20,39 +22,46 @@ public class SalonController {
     private final SalonService salonService;
     private final SalonServiceCB salonServiceCB;
 
-    // http://localhost:5002/api/salons
-    @PostMapping
-    public ResponseEntity<ApiResponse<?>> createSalon(@RequestBody SalonDto salonDto, @RequestHeader("Authorization") String jwt) throws Exception {
-        ApiResponse<UserDto> userDto = salonServiceCB.getUserProfile(jwt);
-        if(!userDto.isSuccess()){
-            return ResponseEntity.ok(userDto);
-        }
-        if(userDto.getData().getId() == null){
-            return ResponseEntity.ok(new ApiResponse<>(false, "User not found from jwt!!", null));
-        }
+    private UserDto getAuthenticatedUser(String jwt) {
+        CompletableFuture<ApiResponse<UserDto>> future =
+                CompletableFuture.supplyAsync(() -> {
+                    try {
+                        return salonServiceCB.getUserProfile(jwt);
+                    } catch (Exception e) {
+                        throw new ResourceNotFoundException("User not found");
+                    }
+                });
 
-        Salon salon = salonService.createSalon(salonDto, userDto.getData());
-        SalonDto salonDto1 = SalonMapper.mapToDTO(salon);
-        return ResponseEntity.ok(new ApiResponse<>(true, "Salon Created Successfully", salonDto1));
+        ApiResponse<UserDto> response = future.join();
+        if (!response.isSuccess()) {
+            throw new ResourceNotFoundException("User fetch failed");
+        }
+        if (response.getData() == null || response.getData().getId() == null) {
+            throw new ResourceNotFoundException("User not found from JWT");
+        }
+        return response.getData();
+    }
+
+    // http://localhost:5002/api/salons
+    // create salon by providing details
+    @PostMapping
+    public ResponseEntity<ApiResponse<SalonDto>> createSalon(@RequestBody SalonDto salonDto, @RequestHeader("Authorization") String jwt) throws Exception {
+        UserDto user = getAuthenticatedUser(jwt);
+        Salon salon = salonService.createSalon(salonDto, user);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Salon Created Successfully", SalonMapper.mapToDTO(salon)));
     }
 
     // http://localhost:5002/api/salons/2
+    // update salon
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<?>> updateSalon(@PathVariable("id") Long salonId, @RequestBody SalonDto salonDto, @RequestHeader("Authorization") String jwt) throws Exception {
-        ApiResponse<UserDto> userDto = salonServiceCB.getUserProfile(jwt);
-        if(!userDto.isSuccess()){
-            return ResponseEntity.ok(userDto);
-        }
-        if(userDto.getData().getId() == null){
-            return ResponseEntity.ok(new ApiResponse<>(false, "User not found from jwt!!", null));
-        }
-
-        Salon salon = salonService.updateSalon(salonDto, userDto.getData(), salonId);
-        SalonDto salonDto1 = SalonMapper.mapToDTO(salon);
-        return ResponseEntity.ok(new ApiResponse<>(true, "Salon Updated Successfully", salonDto1));
+        UserDto user = getAuthenticatedUser(jwt);
+        Salon salon = salonService.updateSalon(salonDto, user, salonId);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Salon Updated Successfully", SalonMapper.mapToDTO(salon)));
     }
 
     // http://localhost:5002/api/salons
+    // get all salons
     @GetMapping
     public ResponseEntity<ApiResponse<List<SalonDto>>> getSalons() throws Exception {
         List<Salon> salons = salonService.getAllSalons();
@@ -63,6 +72,7 @@ public class SalonController {
     }
 
     @GetMapping("/active")
+    // get all salons which are active
     public ResponseEntity<ApiResponse<List<SalonDto>>> getSalonsActive(){
         List<Salon> salons = salonService.getAllSalonsActive();
         List<SalonDto> salonDtos = salons.stream()
@@ -72,6 +82,7 @@ public class SalonController {
     }
 
     // http://localhost:5002/api/salons/5
+    // get salon by id
     @GetMapping("/{salonId}")
     public ResponseEntity<ApiResponse<SalonDto>> getSalonById(@PathVariable Long salonId) throws Exception {
         Salon salon = salonService.getSalonById(salonId);
@@ -80,6 +91,7 @@ public class SalonController {
     }
 
     // http://localhost:5002/api/salons/search?city=Mumbai
+    // search salon by its city name
     @GetMapping("/search")
     public ResponseEntity<List<SalonDto>> searchSalons(@RequestParam("city") String city) throws Exception {
         List<Salon> salons = salonService.searchSalonByCity(city);
@@ -89,48 +101,47 @@ public class SalonController {
     }
 
     // http://localhost:5002/api/salons/owner
+    // get all salons who owns it
     @GetMapping("/owner")
     public ResponseEntity<ApiResponse<List<SalonDto>>> getSalonByOwnerId(@RequestHeader("Authorization") String jwt) throws Exception {
-        ApiResponse<UserDto> userDto = salonServiceCB.getUserProfile(jwt);
-        if (!userDto.isSuccess()) {
-            return ResponseEntity.ok(new ApiResponse<>(false, "User fetch failed", null));
-        }
-        if(userDto.getData().getId() == null){
-            return ResponseEntity.ok(new ApiResponse<>(false, "User not found from jwt!!", null));
-        }
+        UserDto user = getAuthenticatedUser(jwt);
 
-        List<Salon> salons = salonService.getSalonByOwnerId(userDto.getData().getId());
-        List<SalonDto> salonDtos = salons.stream().map(SalonMapper::mapToDTO).toList();
-        return ResponseEntity.ok(new ApiResponse<>(true, "Salon Owner fetched", salonDtos));
+        List<SalonDto> salons = salonService.getSalonByOwnerId(user.getId()).stream()
+                .map(SalonMapper::mapToDTO)
+                .toList();
+        return ResponseEntity.ok(new ApiResponse<>(true, "Salon Owner fetched", salons));
     }
 
+    @GetMapping("/others")
+    public ResponseEntity<ApiResponse<List<SalonDto>>> getOtherSalons(@RequestHeader("Authorization") String jwt){
+        UserDto user = getAuthenticatedUser(jwt);
+        Long ownerId = user.getId();
+        CompletableFuture<List<SalonDto>> salonFuture =
+                CompletableFuture.supplyAsync(()->
+                    salonService.getAllSalons().stream()
+                            .filter(salon -> !salon.getOwnerId().equals(ownerId))
+                            .map(SalonMapper::mapToDTO)
+                            .toList()
+                );
+        List<SalonDto> salons = salonFuture.join();
+        return ResponseEntity.ok(new ApiResponse<>(true, "Other salons fetched", salons));
+    }
+
+
+    // delete salon by id
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<?>> deleteSalon(@PathVariable("id") Long salonId, @RequestHeader("Authorization") String jwt) throws Exception {
-        ApiResponse<UserDto> userDto = salonServiceCB.getUserProfile(jwt);
-        if (!userDto.isSuccess()) {
-            return ResponseEntity.ok(new ApiResponse<>(false, "User fetch failed", null));
-        }
-        if(userDto.getData().getId() == null){
-            return ResponseEntity.ok(new ApiResponse<>(false, "User not found from jwt!!", null));
-        }
-
-        salonService.deleteSalon(salonId, userDto.getData().getId());
+        UserDto user = getAuthenticatedUser(jwt);
+        salonService.deleteSalon(salonId, user.getId());
         return ResponseEntity.ok(new ApiResponse<>(true, "Salon deleted successfully", null));
     }
 
+    // toggle the status of salon - (Active/InActive)
     @PutMapping("/{id}/toggle-status")
     public ResponseEntity<ApiResponse<SalonDto>> toggleSalonStatus(@PathVariable("id") Long salonId, @RequestHeader("Authorization") String jwt) throws Exception {
-        ApiResponse<UserDto> userDto = salonServiceCB.getUserProfile(jwt);
-        if (!userDto.isSuccess()) {
-            return ResponseEntity.ok(new ApiResponse<>(false, "User fetch failed", null));
-        }
-        if(userDto.getData().getId() == null){
-            return ResponseEntity.ok(new ApiResponse<>(false, "User not found from jwt!!", null));
-        }
-
-        Salon salon = salonService.toggleSalonStatus(salonId, userDto.getData().getId());
-        SalonDto salonDto = SalonMapper.mapToDTO(salon);
-        return ResponseEntity.ok(new ApiResponse<>(true, "Salon status updated", salonDto));
+        UserDto user = getAuthenticatedUser(jwt);
+        Salon salon = salonService.toggleSalonStatus(salonId, user.getId());
+        return ResponseEntity.ok(new ApiResponse<>(true, "Salon status updated", SalonMapper.mapToDTO(salon)));
     }
 
 }
