@@ -27,7 +27,6 @@ public class CategoryController {
     @GetMapping("/salon/{id}")
     public ResponseEntity<ApiResponse<List<CategoryResponse>>> getCategoriesBySalon(@PathVariable Long id) throws Exception {
         Set<Category> categories = categoryService.getAllCategoriesBySalon(id);
-
         CompletableFuture<SalonDto> salonFuture =
                 CompletableFuture.supplyAsync(()->{
                    try {
@@ -62,7 +61,6 @@ public class CategoryController {
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<CategoryResponse>> getCategoryById(@PathVariable Long id) throws Exception {
         Category category = categoryService.getCategoryById(id);
-
         CompletableFuture<SalonDto> salonFuture =
                 CompletableFuture.supplyAsync(() -> {
                     try {
@@ -92,7 +90,6 @@ public class CategoryController {
     @GetMapping
     private ResponseEntity<ApiResponse<List<CategoryResponse>>> getAllCategories(){
         List<Category> categories = categoryService.getAllCategories();
-
         List<CategoryResponse> responses = categories.stream()
                 .map(category -> {
                    try{
@@ -135,6 +132,104 @@ public class CategoryController {
                 .toList();
 
         return ResponseEntity.ok(new ApiResponse<>(true, "All categories fetched", responses));
+    }
+
+    @GetMapping("/owner")
+    public ResponseEntity<ApiResponse<List<CategoryResponse>>> getOwnerCategories(@RequestHeader("Authorization") String jwt){
+        UserDto userDto = CompletableFuture
+                .supplyAsync(() -> {
+                    try{
+                        ApiResponse<UserDto> response = categoryServiceCB.getUserProfile(jwt);
+                        if (!response.isSuccess() || response.getData() == null) {
+                            throw new ResourceNotFoundException("User not found");
+                        }
+                        return response.getData();
+                    }
+                    catch(Exception e){
+                        throw new ResourceNotFoundException("User not found");
+                    }
+                })
+                .join();
+
+        List<SalonDto> salons = CompletableFuture
+                .supplyAsync(() -> {
+                    try{
+                        ApiResponse<List<SalonDto>> response = categoryServiceCB.getSalonByOwnerId(jwt);
+                        if (!response.isSuccess() || response.getData() == null) {
+                            throw new ResourceNotFoundException("Salons not found");
+                        }
+                        return response.getData();
+                    }
+                    catch (Exception e) {
+                        throw new ResourceNotFoundException("Salons not found");
+                    }
+                })
+                .join();
+
+        List<CategoryResponse> responses = new ArrayList<>();
+        for(SalonDto salonDto: salons){
+            Set<Category> categories = categoryService.getAllCategoriesBySalon(salonDto.getId());
+            for(Category category: categories){
+                responses.add(CategoryMapper.toResponse(category, salonDto, userDto));
+            }
+        }
+
+        return ResponseEntity.ok(new ApiResponse<>(true, "Owner categories fetched successfully", responses));
+    }
+
+    @GetMapping("/others")
+    public ResponseEntity<ApiResponse<List<CategoryResponse>>> getOtherCategories(@RequestHeader("Authorization") String jwt){
+        // Logged in user
+        UserDto userDto = CompletableFuture
+                .supplyAsync(() -> {
+                    try{
+                        return categoryServiceCB.getUserProfile(jwt).getData();
+                    }
+                    catch(Exception e){
+                        throw new ResourceNotFoundException("User not found");
+                    }
+                })
+                .join();
+        if (userDto == null || userDto.getId() == null) {
+            return ResponseEntity.ok(new ApiResponse<>(false, "User not found", null));
+        }
+
+        // Get salons not owned by logged-in user
+        List<SalonDto> salons = CompletableFuture
+                .supplyAsync(() -> {
+                    try {
+                        return categoryServiceCB.getOtherSalons(jwt).getData();
+                    }
+                    catch (Exception e) {
+                        throw new ResourceNotFoundException("Salons not found");
+                    }
+                })
+                .join();
+
+        List<CategoryResponse> responses = new ArrayList<>();
+        for(SalonDto salonDto: salons){
+            UserDto salonOwner = CompletableFuture
+                    .supplyAsync(() -> {
+                        try{
+                            ApiResponse<UserDto> response = categoryServiceCB.getUserById(salonDto.getOwnerId());
+                            if (!response.isSuccess() || response.getData() == null) {
+                                throw new ResourceNotFoundException("Owner not found");
+                            }
+                            return response.getData();
+                        }
+                        catch (Exception e) {
+                            throw new ResourceNotFoundException("Owner not found");
+                        }
+                    })
+                    .join();
+            Set<Category> categories = categoryService.getAllCategoriesBySalon(salonDto.getId());
+            for(Category category: categories){
+                responses.add(CategoryMapper.toResponse(category, salonDto, salonOwner));
+            }
+        }
+
+        return ResponseEntity.ok(new ApiResponse<>(true, "Other salon categories fetched successfully", responses));
+
     }
 
     @DeleteMapping("/{id}")

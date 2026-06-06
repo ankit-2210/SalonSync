@@ -2,7 +2,12 @@ package com.offeringservice.mapper;
 
 
 import com.offeringservice.modal.OfferingService;
+import com.offeringservice.payload.dto.CategoryDto;
+import com.offeringservice.payload.dto.SalonDto;
 import com.offeringservice.payload.dto.ServiceDto;
+import com.offeringservice.payload.dto.UserDto;
+import com.offeringservice.payload.response.CategoryResponse;
+import com.offeringservice.payload.response.ServiceResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -24,6 +29,23 @@ public class ServiceMapper {
    }
 
    public Set<ServiceDto> mapToDtoSet(Set<OfferingService> services){
-       return services.stream().map(this::mapToDto).collect(Collectors.toSet());
+       return services.stream()
+               .map(this::mapToDto)
+               .collect(Collectors.toSet());
    }
+
+   public ServiceResponse toResponse(OfferingService offeringService, CategoryResponse categoryResponse){
+       return ServiceResponse.builder()
+               .id(offeringService.getId())
+               .name(offeringService.getName())
+               .description(offeringService.getDescription())
+               .price(offeringService.getPrice())
+               .duration(offeringService.getDuration())
+               .image(offeringService.getImage())
+               .categoryDto(categoryResponse.getCategoryDto())
+               .salonDto(categoryResponse.getSalonDto())
+               .userDto(categoryResponse.getUserDto())
+               .build();
+   }
+
 }

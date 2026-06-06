@@ -10,12 +10,16 @@ import java.util.Set;
 public interface OfferingServicesService {
     OfferingService createService(SalonDto salonDto, ServiceDto serviceDto, CategoryDto categoryDto);
 
-    OfferingService updateService(Long serviceId, OfferingService service) throws Exception;
+    OfferingService updateService(Long serviceId, ServiceDto serviceDto) throws Exception;
 
     Set<OfferingService> getAllServiceBySalonId(Long salonId, Long categoryId);
 
     Set<OfferingService> getServicesById(Set<Long> ids);
 
+    Set<OfferingService> getServicesBySalons(Set<Long> salonIds);
+
     OfferingService getServiceById(Long id) throws Exception;
+
+    void deleteService(Long serviceId);
 
 }

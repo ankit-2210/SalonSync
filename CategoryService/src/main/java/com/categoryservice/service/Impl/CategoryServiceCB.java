@@ -10,6 +10,7 @@ import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class CategoryServiceCB {
         }
         return response.getBody();
     }
-    public ApiResponse<SalonDto> salonFallback(Long salonId, Throwable t) {
+    public ApiResponse<SalonDto> salonByIdFallback(Long salonId, Throwable t) {
         return new ApiResponse<>(false, "Salon Service Down", null);
     }
 
@@ -77,5 +78,18 @@ public class CategoryServiceCB {
         return new ApiResponse<>(false, "User Service is down. Please try later.", null);
     }
 
+    @Retry(name="salonOthersRetry", fallbackMethod = "salonOthersFallback")
+    @CircuitBreaker(name="salonOthersCB", fallbackMethod = "salonOthersFallback")
+    public ApiResponse<List<SalonDto>> getOtherSalons(String jwt){
+        ResponseEntity<ApiResponse<List<SalonDto>>> response = salonFeignClient.getOtherSalons(jwt);
+        if (response == null || response.getBody() == null) {
+            return new ApiResponse<>(false, "Salon Service returned empty response", null);
+        }
+        return response.getBody();
+    }
+
+    public ApiResponse<List<SalonDto>> salonOthersFallback(String jwt, Throwable t) {
+        return new ApiResponse<>(false, "Salon Service is currently unavailable. Please try again later.", null);
+    }
 
 }

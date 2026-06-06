@@ -1,16 +1,19 @@
 package com.offeringservice.controller;
 
+import com.offeringservice.exception.ResourceNotFoundException;
 import com.offeringservice.mapper.ServiceMapper;
 import com.offeringservice.modal.OfferingService;
 import com.offeringservice.payload.dto.ServiceDto;
-import com.offeringservice.payload.response.ApiResponse;
+import com.offeringservice.payload.response.*;
+import com.offeringservice.service.Impl.OfferingServicesServiceCB;
 import com.offeringservice.service.OfferingServicesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.offeringservice.mapper.ServiceMapper.*;
 
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @RestController
@@ -18,31 +21,61 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OfferingServiceController {
     private final OfferingServicesService offeringServicesService;
+    private final OfferingServicesServiceCB offeringServicesServiceCB;
     private final ServiceMapper serviceMapper;
 
-    @GetMapping("/salon/{salonId}")
-    public ResponseEntity<ApiResponse<Set<ServiceDto>>> getServicesBySalonId(@PathVariable Long salonId, @RequestParam(required = false) Long categoryId){
-        Set<ServiceDto> services = serviceMapper.mapToDtoSet(offeringServicesService.getAllServiceBySalonId(salonId, categoryId));
-        return ResponseEntity.ok(new ApiResponse<>(true, "Services fetch successfully", services));
-    }
+    private ServiceResponse buildServiceResponse(OfferingService offeringService){
+        CategoryResponse categoryResponse =
+                CompletableFuture.supplyAsync(() -> {
+                    try {
+                        ApiResponse<CategoryResponse> response = offeringServicesServiceCB.getCategoryById(offeringService.getCategoryId());
+                        if (!response.isSuccess() || response.getData() == null) {
+                            throw new ResourceNotFoundException("Category not found");
+                        }
+                        return response.getData();
+                    }
+                    catch (Exception e) {
+                        throw new ResourceNotFoundException("Category fetch failed");
+                    }
+                }).join();
 
-    @GetMapping("/salon/{salonId}/category/{categoryId}")
-    public ResponseEntity<ApiResponse<Set<ServiceDto>>> getServicesBySalonAndCategory(@PathVariable Long salonId, @PathVariable Long categoryId) {
-        Set<ServiceDto> offeringServices = serviceMapper.mapToDtoSet(offeringServicesService.getAllServiceBySalonId(salonId, categoryId));
-        return ResponseEntity.ok(new ApiResponse<>(true, "Services fetch successfully", offeringServices));
+        return serviceMapper.toResponse(offeringService, categoryResponse);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<ServiceDto>> getServiceById(@PathVariable Long id) throws Exception{
+    public ResponseEntity<ApiResponse<ServiceResponse>> getServiceById(@PathVariable Long id) throws Exception{
         OfferingService offeringService = offeringServicesService.getServiceById(id);
-        ServiceDto serviceDto = serviceMapper.mapToDto(offeringService);
-        return ResponseEntity.ok(new ApiResponse<>(true, "Services fetch successfully by id", serviceDto));
+        return ResponseEntity.ok(new ApiResponse<>(true, "Services fetch successfully by id", buildServiceResponse(offeringService)));
     }
 
     @GetMapping("/list")
-    public ResponseEntity<ApiResponse<Set<ServiceDto>>> getServicesByIds(@RequestParam Set<Long> ids){
-        Set<ServiceDto> offeringServices = serviceMapper.mapToDtoSet(offeringServicesService.getServicesById(ids));
-        return ResponseEntity.ok(new ApiResponse<>(true, "Services fetched successfully by ids", offeringServices));
+    public ResponseEntity<ApiResponse<List<ServiceResponse>>> getServicesByIds(@RequestParam Set<Long> ids){
+        List<ServiceResponse> responses =
+                offeringServicesService.getServicesById(ids).stream()
+                        .map(this::buildServiceResponse)
+                        .toList();
+        return ResponseEntity.ok(new ApiResponse<>(true, "Services fetched successfully by ids", responses));
     }
+
+
+    @GetMapping("/salon/{salonId}")
+    public ResponseEntity<ApiResponse<List<ServiceResponse>>> getServicesBySalonId(@PathVariable Long salonId, @RequestParam(required = false) Long categoryId){
+        List<ServiceResponse> responses =
+                offeringServicesService.getAllServiceBySalonId(salonId, categoryId).stream()
+                        .map(this::buildServiceResponse)
+                        .toList();
+        return ResponseEntity.ok(new ApiResponse<>(true, "Services fetch successfully", responses));
+    }
+
+    @GetMapping("/salon/{salonId}/category/{categoryId}")
+    public ResponseEntity<ApiResponse<List<ServiceResponse>>> getServicesBySalonAndCategory(@PathVariable Long salonId, @PathVariable Long categoryId){
+        List<ServiceResponse> responses =
+                offeringServicesService
+                        .getAllServiceBySalonId(salonId, categoryId).stream()
+                        .map(this::buildServiceResponse)
+                        .toList();
+        return ResponseEntity.ok(new ApiResponse<>(true, "Services fetched successfully", responses));
+    }
+
 
 }

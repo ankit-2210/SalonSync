@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="Category Controller changes made">
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="Category and Salon Controller changes made">
+      <change afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/payload/response/CategoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/payload/response/ServiceResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/controller/SalonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/controller/SalonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/modal/Salon.java" beforeDir="false" afterPath="$PROJECT_DIR$/SalonService/src/main/java/com/salonservice/modal/Salon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/payload/dto/SalonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/payload/dto/SalonDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/service/Impl/CategoryServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/service/Impl/CategoryServiceCB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/service/client/SalonFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/CategoryService/src/main/java/com/categoryservice/service/client/SalonFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/controller/OfferingServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/controller/OfferingServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/controller/SalonOfferingServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/controller/SalonOfferingServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/mapper/ServiceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/mapper/ServiceMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/payload/dto/SalonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/payload/dto/SalonDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/repository/OfferingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/repository/OfferingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceCB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/Impl/OfferingServicesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/OfferingServicesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/OfferingServicesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/client/CategoryFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/service/client/CategoryFeignClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,14 +147,14 @@
       <recent name="com.bookingservice" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.offeringservice.payload.response" />
       <recent name="com.apigateway.response" />
       <recent name="com.notificationservice.payload.dto" />
       <recent name="com.notificationservice.service.client" />
       <recent name="com.notificationservice.payload.response" />
-      <recent name="com.paymentservice.payload.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SalonServiceApplication">
+  <component name="RunManager" selected="Application.CategoryserviceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
       <module name="apigateway" />
@@ -265,9 +277,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CategoryserviceApplication" />
         <item itemvalue="Application.SalonServiceApplication" />
         <item itemvalue="Application.OfferingServiceApplication" />
-        <item itemvalue="Application.CategoryserviceApplication" />
         <item itemvalue="JUnit.CategoryServiceImplTest.getCategoryById_NotFound" />
         <item itemvalue="Application.NotificationserviceApplication" />
       </list>
@@ -594,7 +606,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780556482812</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Category and Salon Controller changes made">
+      <option name="closed" value="true" />
+      <created>1780642688445</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1780642688445</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -638,7 +658,8 @@
     <MESSAGE value="users changes made" />
     <MESSAGE value="NotificationController changes made" />
     <MESSAGE value="Category Controller changes made" />
-    <option name="LAST_COMMIT_MESSAGE" value="Category Controller changes made" />
+    <MESSAGE value="Category and Salon Controller changes made" />
+    <option name="LAST_COMMIT_MESSAGE" value="Category and Salon Controller changes made" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

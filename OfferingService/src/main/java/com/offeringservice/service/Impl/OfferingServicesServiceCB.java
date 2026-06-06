@@ -4,6 +4,7 @@ import com.offeringservice.payload.dto.CategoryDto;
 import com.offeringservice.payload.dto.SalonDto;
 import com.offeringservice.payload.dto.UserDto;
 import com.offeringservice.payload.response.ApiResponse;
+import com.offeringservice.payload.response.CategoryResponse;
 import com.offeringservice.service.client.CategoryFeignClient;
 import com.offeringservice.service.client.SalonFeignClient;
 import com.offeringservice.service.client.UserFeignClient;
@@ -45,7 +46,6 @@ public class OfferingServicesServiceCB {
         }
         return response.getBody();
     }
-
     public ApiResponse<?> salonByIdFallback(Long salonId, Throwable t) {
         System.out.println("Salon fallback triggered: " + t.getMessage());
         return new ApiResponse<>(false, "Salon Service is currently unavailable.", null);
@@ -53,16 +53,31 @@ public class OfferingServicesServiceCB {
 
     @Retry(name = "categoryRetry", fallbackMethod = "categoryFallback")
     @CircuitBreaker(name="categoryCB", fallbackMethod = "categoryFallback")
-    public ApiResponse<CategoryDto> getCategoryByIdAndSalonId(Long categoryId, Long salonId) throws Exception {
-        ResponseEntity<ApiResponse<CategoryDto>> categoryDtoResponseEntity = categoryFeignClient.getCategoryByIdAndSalonId(categoryId, salonId);
+    public ApiResponse<CategoryResponse> getCategoryByIdAndSalonId(Long categoryId, Long salonId) throws Exception {
+        ResponseEntity<ApiResponse<CategoryResponse>> categoryDtoResponseEntity = categoryFeignClient.getCategoryByIdAndSalonId(categoryId, salonId);
         if (categoryDtoResponseEntity == null || categoryDtoResponseEntity.getBody() == null) {
             return new ApiResponse<>(false, "Category Service unavailable", null);
         }
         return categoryDtoResponseEntity.getBody();
     }
-    public ApiResponse<CategoryDto> categoryFallback(Long categoryId, Long salonId, Throwable t) {
+    public ApiResponse<CategoryResponse> categoryFallback(Long categoryId, Long salonId, Throwable t) {
         return new ApiResponse<>(false, "Category Service is down", null);
     }
+
+    // get category by id
+    @Retry(name = "categoryRetry", fallbackMethod = "categoryFallback")
+    @CircuitBreaker(name = "categoryCB", fallbackMethod = "categoryFallback")
+    public ApiResponse<CategoryResponse> getCategoryById(Long categoryId) throws Exception {
+        ResponseEntity<ApiResponse<CategoryResponse>> response = categoryFeignClient.getCategoryById(categoryId);
+        if (response == null || response.getBody() == null) {
+            return new ApiResponse<>(false, "Category not found", null);
+        }
+        return response.getBody();
+    }
+    public ApiResponse<CategoryResponse> categoryFallback(Long categoryId, Throwable throwable) {
+        return new ApiResponse<>(false, "Category Service is unavailable", null);
+    }
+
 
 
     // get User Profile

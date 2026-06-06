@@ -7,4 +7,6 @@ import java.util.*;
 public interface OfferingRepository extends JpaRepository<OfferingService, Long> {
     List<OfferingService> findBySalonId(Long salonId);
 
+    Set<OfferingService> findBySalonIdIn(Set<Long> salonIds);
+
 }

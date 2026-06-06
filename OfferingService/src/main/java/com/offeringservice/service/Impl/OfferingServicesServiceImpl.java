@@ -32,7 +32,7 @@ public class OfferingServicesServiceImpl implements OfferingServicesService {
     }
 
     @Override
-    public OfferingService updateService(Long serviceId, OfferingService service) throws Exception{
+    public OfferingService updateService(Long serviceId, ServiceDto service) throws Exception{
         OfferingService offeringService = offeringRepository.findById(serviceId)
                 .orElseThrow(() -> new Exception("Service not exist with id: " + serviceId));
 
@@ -65,9 +65,23 @@ public class OfferingServicesServiceImpl implements OfferingServicesService {
     }
 
     @Override
+    public Set<OfferingService> getServicesBySalons(Set<Long> salonIds){
+        if(salonIds == null || salonIds.isEmpty())
+            return Collections.emptySet();
+
+        return offeringRepository.findBySalonIdIn(salonIds);
+    }
+
+
+    @Override
     public OfferingService getServiceById(Long id) throws Exception {
         return offeringRepository.findById(id)
                 .orElseThrow(() -> new Exception("Service not exist with id: " + id));
+    }
+
+    @Override
+    public void deleteService(Long serviceId) {
+        offeringRepository.deleteById(serviceId);
     }
 
 
