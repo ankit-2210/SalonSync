@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="Category and Service Controller changes made">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ankit-2210&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ankit-2210/SalonSync.git&quot;,
+    &quot;accountId&quot;: &quot;a93fc3b9-84a3-47a8-bd20-7b094972708a&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\plugins\maven\lib\maven3" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="39e6ERqZK6zcaEx76bqNhlRNQoL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ApiGatewayApplication.executor": "Run",
+    "Application.BookingserviceApplication.executor": "Run",
+    "Application.CategoryserviceApplication.executor": "Run",
+    "Application.EurekaserverApplication.executor": "Run",
+    "Application.NotificationserviceApplication.executor": "Run",
+    "Application.OfferingServiceApplication.executor": "Run",
+    "Application.PaymentserviceApplication.executor": "Run",
+    "Application.ReviewserviceApplication.executor": "Run",
+    "Application.SalonServiceApplication.executor": "Run",
+    "Application.UserServiceApplication.executor": "Run",
+    "JUnit.AuthControllerTest.testLogin.executor": "Run",
+    "JUnit.AuthControllerTest.testSignUp.executor": "Run",
+    "JUnit.AuthServiceImplTest.testGetAccessTokenFromRefreshToken.executor": "Run",
+    "JUnit.AuthServiceImplTest.testLogin.executor": "Run",
+    "JUnit.AuthServiceImplTest.testSignUp.executor": "Run",
+    "JUnit.CategoryServiceImplTest.deleteCategory_WithSalon_Unauthorized.executor": "Run",
+    "JUnit.CategoryServiceImplTest.executor": "Debug",
+    "JUnit.CategoryServiceImplTest.getAllCategories.executor": "Run",
+    "JUnit.CategoryServiceImplTest.getCategoryByIdAndSalonId.executor": "Run",
+    "JUnit.CategoryServiceImplTest.getCategoryById_NotFound.executor": "Run",
+    "JUnit.CategoryServiceImplTest.saveCategory.executor": "Run",
+    "JUnit.KeycloakServiceTest.testGetAdminAccessTokenFailure.executor": "Run",
+    "JUnit.KeycloakServiceTest.testGetAdminAccessTone.executor": "Run",
+    "JUnit.KeycloakServiceTest.testGetFirstUserByUsername.executor": "Run",
+    "JUnit.KeycloakServiceTest.testGetRoleNyName.executor": "Run",
+    "JUnit.OfferingServiceTest.executor": "Run",
+    "JUnit.OfferingServiceTest.testToString.executor": "Run",
+    "JUnit.ReviewTest.executor": "Run",
+    "JUnit.ReviewTest.testReviewModel.executor": "Run",
+    "JUnit.SalonCategoryControllerTest.createCategory.executor": "Run",
+    "JUnit.SalonCategoryControllerTest.deleteCategory.executor": "Run",
+    "JUnit.SalonCategoryControllerTest.executor": "Debug",
+    "JUnit.SalonControllerTest.testCreateSalon.executor": "Run",
+    "JUnit.SalonControllerTest.testCreateSalonUserFailed.executor": "Run",
+    "JUnit.SalonServiceImplTest.testCreateSalon.executor": "Debug",
+    "JUnit.SalonServiceImplTest.testGetAllSalons.executor": "Run",
+    "JUnit.SalonServiceImplTest.testGetSalonById.executor": "Run",
+    "JUnit.SalonServiceImplTest.testGetSalonByIdNotFound.executor": "Run",
+    "JUnit.SalonServiceImplTest.testGetSalonByOwnerId.executor": "Run",
+    "JUnit.SalonServiceImplTest.testSearchSalonByCity.executor": "Run",
+    "JUnit.SalonServiceImplTest.testUpdateSalon.executor": "Run",
+    "JUnit.SalonServiceImplTest.testUpdateSalonNotFound.executor": "Run",
+    "JUnit.SalonTest.testImagesList.executor": "Run",
+    "JUnit.SalonTest.testSalonModel.executor": "Run",
+    "JUnit.SalonTest.testToString.executor": "Run",
+    "JUnit.UserTest.testUserGettersAndSetters.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Spring Boot/Salon/backend",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Spring Boot\micro\salon\BookingService\src\main\resources\reports" />
+      <recent name="C:\Spring Boot\micro\salon\BookingService\src\main\resources\images" />
+      <recent name="C:\Spring Boot\micro\salon\UserService\src\main\java\com\userservice" />
+      <recent name="C:\Spring Boot\micro\salon\ApiGateway\src\main\java\com\apigateway" />
+      <recent name="C:\Spring Boot\micro\salon\BookingService\src\main\java\com\bookingservice" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.bookingservice.service" />
+      <recent name="com.paymentservice" />
+      <recent name="com.bookingservice" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.offeringservice.payload.response" />
+      <recent name="com.apigateway.response" />
+      <recent name="com.notificationservice.payload.dto" />
+      <recent name="com.notificationservice.service.client" />
+      <recent name="com.notificationservice.payload.response" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CategoryserviceApplication">
+    <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.apigateway.ApiGatewayApplication" />
+      <module name="apigateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.apigateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookingserviceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bookingservice.BookingserviceApplication" />
+      <module name="bookingservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bookingservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CategoryserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.categoryservice.CategoryserviceApplication" />
+      <module name="categoryservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.categoryservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaserverApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.eurekaserver.EurekaserverApplication" />
+      <module name="eurekaserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.eurekaserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.notificationservice.NotificationserviceApplication" />
+      <module name="notificationservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.notificationservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OfferingServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.offeringservice.OfferingServiceApplication" />
+      <module name="offeringservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.offeringservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SalonServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.salonservice.SalonServiceApplication" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.salonservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.userservice.UserServiceApplication" />
+      <module name="userservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.userservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CategoryServiceImplTest.getCategoryById_NotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="categoryservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.categoryservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.categoryservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.categoryservice.service.CategoryServiceImplTest" />
+      <option name="METHOD_NAME" value="getCategoryById_NotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CategoryserviceApplication" />
+        <item itemvalue="Application.SalonServiceApplication" />
+        <item itemvalue="Application.OfferingServiceApplication" />
+        <item itemvalue="JUnit.CategoryServiceImplTest.getCategoryById_NotFound" />
+        <item itemvalue="Application.NotificationserviceApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ec43a17-ee72-45b6-ab40-3ac7f735bb0e" name="Default Changelist" comment="" />
+      <created>1771044077448</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1771044077448</updated>
+    </task>
+    <task id="LOCAL-00001" summary="creating unit testing for user service.">
+      <option name="closed" value="true" />
+      <created>1776326743641</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1776326743641</updated>
+    </task>
+    <task id="LOCAL-00002" summary="creating unit testing for KeycloakServiceTest.java">
+      <option name="closed" value="true" />
+      <created>1776328314751</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776328314751</updated>
+    </task>
+    <task id="LOCAL-00003" summary="creating unit testing for AuthServiceImplTest.java">
+      <option name="closed" value="true" />
+      <created>1776330073646</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776330073646</updated>
+    </task>
+    <task id="LOCAL-00004" summary="creating unit testing for AuthServiceImplTest.java">
+      <option name="closed" value="true" />
+      <created>1776334824361</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776334824361</updated>
+    </task>
+    <task id="LOCAL-00005" summary="creating unit testing for AuthServiceImplTest.java">
+      <option name="closed" value="true" />
+      <created>1776351033470</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1776351033470</updated>
+    </task>
+    <task id="LOCAL-00006" summary="so many changes happens">
+      <option name="closed" value="true" />
+      <created>1776362705051</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1776362705051</updated>
+    </task>
+    <task id="LOCAL-00007" summary="so many changes happens">
+      <option name="closed" value="true" />
+      <created>1776419713578</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1776419713578</updated>
+    </task>
+    <task id="LOCAL-00008" summary="so many changes happens">
+      <option name="closed" value="true" />
+      <created>1776420825942</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1776420825942</updated>
+    </task>
+    <task id="LOCAL-00009" summary="notification code change">
+      <option name="closed" value="true" />
+      <created>1776421512757</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1776421512757</updated>
+    </task>
+    <task id="LOCAL-00010" summary="notification code change">
+      <option name="closed" value="true" />
+      <created>1776442894119</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1776442894119</updated>
+    </task>
+    <task id="LOCAL-00011" summary="notification code change">
+      <option name="closed" value="true" />
+      <created>1776447258504</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1776447258504</updated>
+    </task>
+    <task id="LOCAL-00012" summary="notification code change">
+      <option name="closed" value="true" />
+      <created>1776449975248</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1776449975248</updated>
+    </task>
+    <task id="LOCAL-00013" summary="global exception handler code">
+      <option name="closed" value="true" />
+      <created>1776487921083</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1776487921083</updated>
+    </task>
+    <task id="LOCAL-00014" summary="global exception handler code">
+      <option name="closed" value="true" />
+      <created>1776488002724</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1776488002725</updated>
+    </task>
+    <task id="LOCAL-00015" summary="global exception handler code">
+      <option name="closed" value="true" />
+      <created>1776489306133</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1776489306133</updated>
+    </task>
+    <task id="LOCAL-00016" summary="global exception handler code">
+      <option name="closed" value="true" />
+      <created>1776492954853</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1776492954853</updated>
+    </task>
+    <task id="LOCAL-00017" summary="global exception handler code">
+      <option name="closed" value="true" />
+      <created>1776588412520</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1776588412521</updated>
+    </task>
+    <task id="LOCAL-00018" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776593898940</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1776593898940</updated>
+    </task>
+    <task id="LOCAL-00019" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776598401294</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1776598401294</updated>
+    </task>
+    <task id="LOCAL-00020" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776613212675</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1776613212675</updated>
+    </task>
+    <task id="LOCAL-00021" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776622253854</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1776622253855</updated>
+    </task>
+    <task id="LOCAL-00022" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776623843357</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1776623843357</updated>
+    </task>
+    <task id="LOCAL-00023" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1776658431209</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1776658431209</updated>
+    </task>
+    <task id="LOCAL-00024" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1777792470735</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1777792470735</updated>
+    </task>
+    <task id="LOCAL-00025" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1777792489969</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1777792489969</updated>
+    </task>
+    <task id="LOCAL-00026" summary="retry and circuitBreaker changes">
+      <option name="closed" value="true" />
+      <created>1777792533127</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1777792533128</updated>
+    </task>
+    <task id="LOCAL-00027" summary="UserController.java changes">
+      <option name="closed" value="true" />
+      <created>1777960683746</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1777960683746</updated>
+    </task>
+    <task id="LOCAL-00028" summary="UserController.java changes">
+      <option name="closed" value="true" />
+      <created>1777982618973</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1777982618974</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Salon changes made">
+      <option name="closed" value="true" />
+      <created>1778091297039</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1778091297039</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Salon changes made">
+      <option name="closed" value="true" />
+      <created>1778177592106</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1778177592106</updated>
+    </task>
+    <task id="LOCAL-00031" summary="users changes made">
+      <option name="closed" value="true" />
+      <created>1778177865620</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1778177865620</updated>
+    </task>
+    <task id="LOCAL-00032" summary="users changes made">
+      <option name="closed" value="true" />
+      <created>1778587069582</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1778587069582</updated>
+    </task>
+    <task id="LOCAL-00033" summary="users changes made">
+      <option name="closed" value="true" />
+      <created>1778587337792</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1778587337792</updated>
+    </task>
+    <task id="LOCAL-00034" summary="users changes made">
+      <option name="closed" value="true" />
+      <created>1778588408016</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1778588408016</updated>
+    </task>
+    <task id="LOCAL-00035" summary="users changes made">
+      <option name="closed" value="true" />
+      <created>1778599376365</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1778599376365</updated>
+    </task>
+    <task id="LOCAL-00036" summary="NotificationController changes made">
+      <option name="closed" value="true" />
+      <created>1778602418907</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1778602418907</updated>
+    </task>
+    <task id="LOCAL-00037" summary="NotificationController changes made">
+      <option name="closed" value="true" />
+      <created>1778603866151</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1778603866151</updated>
+    </task>
+    <task id="LOCAL-00038" summary="NotificationController changes made">
+      <option name="closed" value="true" />
+      <created>1778607828364</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1778607828364</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Category Controller changes made">
+      <option name="closed" value="true" />
+      <created>1780556482812</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1780556482812</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Category and Salon Controller changes made">
+      <option name="closed" value="true" />
+      <created>1780642688445</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1780642688445</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Category and Service Controller changes made">
+      <option name="closed" value="true" />
+      <created>1780766898879</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1780766898879</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="Jenkinsfile" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="creating unit testing for user service." />
+    <MESSAGE value="creating unit testing for KeycloakServiceTest.java" />
+    <MESSAGE value="creating unit testing for AuthServiceImplTest.java" />
+    <MESSAGE value="so many changes happens" />
+    <MESSAGE value="notification code change" />
+    <MESSAGE value="global exception handler code" />
+    <MESSAGE value="retry and circuitBreaker changes" />
+    <MESSAGE value="UserController.java changes" />
+    <MESSAGE value="Salon changes made" />
+    <MESSAGE value="users changes made" />
+    <MESSAGE value="NotificationController changes made" />
+    <MESSAGE value="Category Controller changes made" />
+    <MESSAGE value="Category and Salon Controller changes made" />
+    <MESSAGE value="Category and Service Controller changes made" />
+    <option name="LAST_COMMIT_MESSAGE" value="Category and Service Controller changes made" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/OfferingService/src/main/java/com/offeringservice/mapper/ServiceMapper.java</url>
+          <line>2</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
